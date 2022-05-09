@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as Sentry from '@sentry/react';
 import { BrowserTracing } from '@sentry/tracing';
+import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 
 Sentry.init({
   dsn: 'https://b2ffff33b33d4cbeb35c96ff68ae102d@o1237317.ingest.sentry.io/6387672',
