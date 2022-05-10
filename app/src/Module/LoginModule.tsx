@@ -1,5 +1,6 @@
 import React from 'react';
 import { Stack } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
 import './LoginModule.css';
@@ -33,10 +34,12 @@ function LoginModule(props: LoginModuleProps) {
           <Button value="접속하기"></Button>
           <Button value="비밀번호 재설정"></Button>
         </Stack>
-        <Button
-          style={{ position: 'relative', left: '25%' }}
-          value="처음 이신가요?"
-        ></Button>
+        <Link to="/signup">
+          <Button
+            style={{ position: 'relative', left: '25%' }}
+            value="처음 이신가요?"
+          ></Button>
+        </Link>
       </Stack>
     </div>
   );
