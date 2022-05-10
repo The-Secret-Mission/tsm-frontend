@@ -3,6 +3,7 @@ import { Stack } from 'react-bootstrap';
 // import { Link } from 'react-router-dom';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
+import PasswordBox from '../Component/PasswordBox';
 import './SignupModule.css';
 
 type SignupModuleProps = {
@@ -30,8 +31,8 @@ function LoginModule(props: SignupModuleProps) {
           우리의 새로운 요원으로 참여하세요{' '}
         </p>
         <InputBox placeholder="email을 입력하세요"></InputBox>
-        <InputBox placeholder="password을 입력하세요"></InputBox>
-        <InputBox placeholder="password을 입력하세요"></InputBox>
+        <PasswordBox placeholder="password을 입력하세요"></PasswordBox>
+        <PasswordBox placeholder="password을 입력하세요"></PasswordBox>
         <Button
           style={{ position: 'relative', left: '25%' }}
           value="가입하기"
