@@ -8,7 +8,7 @@ type InputBoxProps = {
 function InputBox(props: InputBoxProps) {
   return (
     <input
-      className="myInput"
+      className="myInputBox"
       type="text"
       placeholder={props.placeholder}
     ></input>

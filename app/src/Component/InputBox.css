@@ -1,4 +1,4 @@
-.myInput {
+.myInputBox {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 30px;
   border-style: none;
@@ -8,7 +8,7 @@
   color: white;
 }
 
-.myInput:focus {
+.myInputBox:focus {
   outline: none;
   box-shadow: 0 0 0 2px white;
   /* outline: 1px solid white; */
