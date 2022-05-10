@@ -5,6 +5,7 @@ import NotFound from './Page/NotFound';
 import Home from './Page/Home';
 import Signup from './Page/Signup';
 import TempPassword from './Page/TempPassword';
+import Test from './Page/Test';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="*" element={<NotFound />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/temppwd" element={<TempPassword />}></Route>
+          <Route path="test" element={<Test />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
