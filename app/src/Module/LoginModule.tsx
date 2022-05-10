@@ -1,7 +1,9 @@
 import React from 'react';
 import { Stack } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
+import PasswordBox from '../Component/PasswordBox';
 import './LoginModule.css';
 
 type LoginModuleProps = {
@@ -28,15 +30,17 @@ function LoginModule(props: LoginModuleProps) {
           돌아오셔서 기쁨니다 하하하{' '}
         </p>
         <InputBox placeholder="email을 입력하세요"></InputBox>
-        <InputBox placeholder="password을 입력하세요"></InputBox>
+        <PasswordBox placeholder="password을 입력하세요"></PasswordBox>
         <Stack direction="horizontal">
           <Button value="접속하기"></Button>
           <Button value="비밀번호 재설정"></Button>
         </Stack>
-        <Button
-          style={{ position: 'relative', left: '25%' }}
-          value="처음 이신가요?"
-        ></Button>
+        <Link to="/signup">
+          <Button
+            style={{ position: 'relative', left: '25%' }}
+            value="처음 이신가요?"
+          ></Button>
+        </Link>
       </Stack>
     </div>
   );
