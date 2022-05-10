@@ -1,0 +1,43 @@
+.menubar {
+  /* border-style: solid;
+  border-width: 1px; */
+  /* top: 100%; */
+  /* left: 0%; */
+  bottom: 0px;
+  position: fixed;
+  /* transform: translate(0, 30%); */
+  width: 100%;
+  max-width: 500px;
+  min-width: 380px;
+  align-items: center;
+  justify-items: center;
+  align-items: center;
+  vertical-align: center;
+  text-align: center;
+}
+.menu {
+  width: 20%;
+  display: inline-block;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  opacity: 0.9;
+}
+
+.menu p {
+  margin: 1px;
+  font-size: x-small;
+  opacity: 0.6;
+}
+
+.menu svg {
+  color: white;
+}
+
+.menu svg:hover {
+  fill: #4fb71e;
+  /* filter: drop-shadow(0 3 3 white); */
+  /* stroke: white;
+  stroke-width: 0.1px; */
+}
