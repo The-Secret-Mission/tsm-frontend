@@ -23,7 +23,7 @@ function TempPassword() {
     return (
       <div>
         <img id="main_logo" src={`${process.env.PUBLIC_URL}/logo.png`}></img>
-        <Stack gap={4} className="temppassword_stack">
+        <Stack gap={3} className="temppassword_stack">
           <h3>가입한 이메일을 입력해주세요</h3>
           <InputBox placeholder=""></InputBox>
           <NoticeLine content="알림이 표시됩니다"></NoticeLine>
