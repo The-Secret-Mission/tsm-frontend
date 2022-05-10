@@ -3,6 +3,7 @@ import { Stack } from 'react-bootstrap';
 // import { Link } from 'react-router-dom';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
+import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
 import './SignupModule.css';
 
@@ -23,7 +24,7 @@ function LoginModule(props: SignupModuleProps) {
         }
       }}
     >
-      <Stack gap={3} className="login_whole">
+      <Stack gap={2} className="login_whole">
         <h3 className="welcome_message" id="welcome_message_header">
           환영합니다{' '}
         </h3>
@@ -33,6 +34,7 @@ function LoginModule(props: SignupModuleProps) {
         <InputBox placeholder="email을 입력하세요"></InputBox>
         <PasswordBox placeholder="password을 입력하세요"></PasswordBox>
         <PasswordBox placeholder="password을 입력하세요"></PasswordBox>
+        <NoticeLine content="알림이 표시됩니다"></NoticeLine>
         <Button
           style={{ position: 'relative', left: '25%' }}
           value="가입하기"

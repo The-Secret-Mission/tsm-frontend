@@ -3,6 +3,7 @@ import { Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
+import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
 import './LoginModule.css';
 
@@ -22,7 +23,7 @@ function LoginModule(props: LoginModuleProps) {
         }
       }}
     >
-      <Stack gap={3} className="login_whole">
+      <Stack gap={2} className="login_whole">
         <h3 className="welcome_message" id="welcome_message_header">
           환영합니다{' '}
         </h3>
@@ -31,6 +32,7 @@ function LoginModule(props: LoginModuleProps) {
         </p>
         <InputBox placeholder="email을 입력하세요"></InputBox>
         <PasswordBox placeholder="password을 입력하세요"></PasswordBox>
+        <NoticeLine content="알림이 표시됩니다"></NoticeLine>
         <Stack direction="horizontal">
           <Button value="접속하기"></Button>
           <Link style={{ width: '60%' }} to="/temppwd">
