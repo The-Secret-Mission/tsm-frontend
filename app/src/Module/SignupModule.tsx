@@ -36,6 +36,7 @@ function LoginModule(props: SignupModuleProps) {
         <PasswordBox placeholder="password을 입력하세요"></PasswordBox>
         <NoticeLine content="알림이 표시됩니다"></NoticeLine>
         <Button
+          type="none"
           style={{ position: 'relative', left: '25%' }}
           value="가입하기"
         ></Button>
