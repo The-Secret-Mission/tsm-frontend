@@ -5,17 +5,28 @@ type ButtonProps = {
   type: 'none' | 'fill';
   value: string;
   style?: CSSProperties;
+  click?: (e: React.MouseEvent<HTMLElement>) => void;
 };
 
 function Button(props: ButtonProps) {
   if (props.type == 'none')
     return (
-      <button className="myButton_none" type="button" style={props.style}>
+      <button
+        onClick={props.click}
+        className="myButton_none"
+        type="button"
+        style={props.style}
+      >
         {props.value}
       </button>
     );
   return (
-    <button className="myButton_fill" type="button" style={props.style}>
+    <button
+      onClick={props.click}
+      className="myButton_fill"
+      type="button"
+      style={props.style}
+    >
       {props.value}
     </button>
   );
