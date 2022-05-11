@@ -7,7 +7,7 @@ import './MyInfo.css';
 
 function MyInfo() {
   const [pass, setPass] = useState(false);
-  // alert(window.innerWidth);
+
   if (!pass)
     return (
       <div className="page1">
