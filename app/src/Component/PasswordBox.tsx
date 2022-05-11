@@ -3,6 +3,7 @@ import './PasswordBox.css';
 
 type PasswordBoxProps = {
   placeholder: string;
+  style?: React.CSSProperties;
 };
 
 function PasswordBox(props: PasswordBoxProps) {
@@ -10,6 +11,7 @@ function PasswordBox(props: PasswordBoxProps) {
     <input
       className="myPasswordBox"
       type="password"
+      style={props.style}
       placeholder={props.placeholder}
     ></input>
   );

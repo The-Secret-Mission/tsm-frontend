@@ -11,7 +11,7 @@ function MenuBar() {
   return (
     <div className="menubar">
       <div className="menu">
-        <Link to="/test">
+        <Link to="/me">
           <MyInfoSvg></MyInfoSvg>
         </Link>
         <p>내 정보</p>
