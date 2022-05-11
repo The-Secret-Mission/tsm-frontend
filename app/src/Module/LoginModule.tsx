@@ -34,13 +34,18 @@ function LoginModule(props: LoginModuleProps) {
         <PasswordBox placeholder="password을 입력하세요"></PasswordBox>
         <NoticeLine content="알림이 표시됩니다"></NoticeLine>
         <Stack direction="horizontal">
-          <Button value="접속하기"></Button>
+          <Button type="none" value="접속하기"></Button>
           <Link style={{ width: '60%' }} to="/temppwd">
-            <Button style={{ width: '90%' }} value="비밀번호 재설정"></Button>
+            <Button
+              type="none"
+              style={{ width: '90%' }}
+              value="비밀번호 재설정"
+            ></Button>
           </Link>
         </Stack>
         <Link to="/signup">
           <Button
+            type="none"
             style={{ position: 'relative', left: '25%' }}
             value="처음 이신가요?"
           ></Button>
