@@ -6,6 +6,8 @@ import Home from './Page/Home';
 import Signup from './Page/Signup';
 import TempPassword from './Page/TempPassword';
 import Test from './Page/Test';
+import MyInfo from './Page/MyInfo';
+import MainGate from './Page/MainGate';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/temppwd" element={<TempPassword />}></Route>
           <Route path="test" element={<Test />}></Route>
+          <Route path="/main" element={<MainGate />}></Route>
+          <Route path="/me" element={<MyInfo />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
