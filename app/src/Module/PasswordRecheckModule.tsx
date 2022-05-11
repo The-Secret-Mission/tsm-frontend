@@ -18,7 +18,7 @@ function PasswordRecheckModule(props: PasswordRecheckModuleProp) {
         <p style={{ textAlign: 'right' }}>로 접속하셨습니다</p>
       </section>
       <PasswordBox
-        style={{ width: '100%' }}
+        style={{ width: '100%', marginBottom: '20px' }}
         placeholder="패스워드를 입력해주세요"
       ></PasswordBox>
       <NoticeLine content={notice}></NoticeLine>

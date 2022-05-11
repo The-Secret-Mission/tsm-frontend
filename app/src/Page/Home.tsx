@@ -1,27 +1,9 @@
-import React, { useState, CSSProperties } from 'react';
+import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import MainLogo from '../Component/MainLogo';
 import LoginModule from '../Module/LoginModule';
+import './Home.css';
 
-const img_active: CSSProperties = {
-  width: '300px',
-  height: 'auto',
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -70%)',
-  opacity: '1',
-  transition: 'opacity 400ms',
-};
-const img_blur: CSSProperties = {
-  width: '300px',
-  height: 'auto',
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -70%)',
-  opacity: '0.3',
-  transition: 'opacity 400ms, visibility 400ms',
-};
 function Home() {
   const [open, setOpen] = useState(false);
   const isDesktopOrLaptop = useMediaQuery({
@@ -38,16 +20,14 @@ function Home() {
     return <div>hello Mobile - LD</div>;
   } else if (isTabletOrMobile && isPortrait) {
     return (
-      <div>
-        <img
-          className="Home"
-          src={`${process.env.PUBLIC_URL}/logo.png`}
-          style={open ? img_blur : img_active}
-          onClick={() => {
+      <div className="page">
+        {open ? <LoginModule setter={setOpen} /> : null}
+        <MainLogo
+          type={open ? 'blur' : 'non_blur'}
+          click={() => {
             setOpen(!open);
           }}
-        ></img>
-        {open ? <LoginModule setter={setOpen} /> : null}
+        ></MainLogo>
       </div>
     );
   }

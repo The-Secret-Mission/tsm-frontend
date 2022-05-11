@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Button from '../Component/Button';
@@ -7,23 +7,41 @@ import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
 import './LoginModule.css';
 
+const imgWidth = Math.max(window.innerWidth * 0.5, 300);
+const newW = (window.innerWidth - imgWidth) / 2 + 'px';
+const newH = (window.innerHeight - imgWidth) / 2 + 'px';
+
+const style: CSSProperties = {
+  width: '100%',
+  position: 'fixed',
+  paddingTop: newH,
+  paddingLeft: newW,
+  paddingBottom: newH,
+  paddingRight: newW,
+  zIndex: 2,
+  transition: '500ms',
+  opacity: 1,
+};
 type LoginModuleProps = {
   setter: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
+console.log(newW);
 function LoginModule(props: LoginModuleProps) {
   return (
     <div
       className="empty_block"
+      style={style}
       onClick={(e) => {
         const temp: any = e.target;
+        console.log(temp.className);
         if (temp.className == 'empty_block') {
           // alert('click');
           props.setter(false);
         }
       }}
     >
-      <Stack gap={2} className="login_whole">
+      <Stack gap={2} className="login_stack">
         <h3 className="welcome_message" id="welcome_message_header">
           환영합니다{' '}
         </h3>
@@ -43,14 +61,17 @@ function LoginModule(props: LoginModuleProps) {
             ></Button>
           </Link>
         </Stack>
-        <Link to="/signup">
+        <Link
+          style={{ position: 'relative', left: '25%', width: '50%' }}
+          to="/signup"
+        >
           <Button
             type="none"
-            style={{ position: 'relative', left: '25%' }}
+            style={{ width: '100%' }}
             value="처음 이신가요?"
           ></Button>
         </Link>
-      </Stack>
+      </Stack>{' '}
     </div>
   );
 }
