@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
+import { EventHandlerProps } from '../Type/EventHandlerProps';
+import { ReactTooltipProps } from '../Type/ReactTooltipProps';
 import './InputBox.css';
 
-type InputBoxProps = {
-  placeholder: string;
-};
+type InputBoxProps = EventHandlerProps &
+  ReactTooltipProps & {
+    placeholder: string;
+    style?: CSSProperties;
+  };
 
 function InputBox(props: InputBoxProps) {
-  return (
-    <input
-      className="myInputBox"
-      type="text"
-      placeholder={props.placeholder}
-    ></input>
-  );
+  return <input className="myInputBox" type="text" {...props}></input>;
 }
 
 export default InputBox;

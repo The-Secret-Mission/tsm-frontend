@@ -52,10 +52,10 @@ function LoginModule(props: LoginModuleProps) {
         <PasswordBox placeholder="password을 입력하세요"></PasswordBox>
         <NoticeLine content="알림이 표시됩니다"></NoticeLine>
         <Stack direction="horizontal">
-          <Button type="none" value="접속하기"></Button>
+          <Button kind="none" value="접속하기"></Button>
           <Link style={{ width: '60%' }} to="/temppwd">
             <Button
-              type="none"
+              kind="none"
               style={{ width: '90%' }}
               value="비밀번호 재설정"
             ></Button>
@@ -66,7 +66,7 @@ function LoginModule(props: LoginModuleProps) {
           to="/signup"
         >
           <Button
-            type="none"
+            kind="none"
             style={{ width: '100%' }}
             value="처음 이신가요?"
           ></Button>

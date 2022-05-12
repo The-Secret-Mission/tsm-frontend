@@ -29,7 +29,7 @@ function TempPassword() {
           <InputBox placeholder="이메일을 입력하세요"></InputBox>
           <NoticeLine content="알림이 표시됩니다"></NoticeLine>
           <Button
-            type="fill"
+            kind="fill"
             style={{ position: 'relative', left: '20%', width: '60%' }}
             value="임시 패스워드 보내기"
           ></Button>

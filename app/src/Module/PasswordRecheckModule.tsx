@@ -25,17 +25,17 @@ function PasswordRecheckModule(props: PasswordRecheckModuleProp) {
       <Link to="/main">
         <Button
           style={{ width: '48%', margin: '1%' }}
-          type="none"
+          kind="none"
           value="뒤로가기"
         ></Button>
       </Link>
       <Button
-        click={(e) => {
+        onClick={(e) => {
           e.preventDefault();
           props.setPass(true);
         }}
         style={{ width: '48%', margin: '1%' }}
-        type="fill"
+        kind="fill"
         value="확인"
       ></Button>
     </div>
