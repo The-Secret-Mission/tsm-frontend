@@ -61,7 +61,7 @@ function MainGate() {
             </ul>
           </section>
           <Button
-            type="fill"
+            kind="fill"
             style={{ position: 'relative', left: '50%' }}
             value="새조직 창설하기"
           ></Button>

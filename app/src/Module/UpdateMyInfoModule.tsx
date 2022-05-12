@@ -17,10 +17,10 @@ function UpdateMyInfoModule() {
       <Stack direction="horizontal" gap={2}>
         <Button
           style={{ color: '#FE8686' }}
-          type="none"
+          kind="none"
           value="탈퇴하기"
         ></Button>
-        <Button type="fill" value="변경하기"></Button>
+        <Button kind="fill" value="변경하기"></Button>
       </Stack>
     </div>
   );

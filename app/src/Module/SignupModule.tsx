@@ -44,12 +44,12 @@ function SignupModule(props: SignupModuleProps) {
         <Stack direction="horizontal" gap={2}>
           <Link style={{ width: '60%' }} to="/">
             <Button
-              type="none"
+              kind="none"
               style={{ width: '100%' }}
               value="기존 요원이신가요?"
             ></Button>
           </Link>
-          <Button type="fill" value="가입하기"></Button>
+          <Button kind="fill" value="가입하기"></Button>
         </Stack>
       </Stack>
     </div>
