@@ -6,7 +6,7 @@ name: React Build
 on:
   # Triggers the workflow on push or pull request events but only for the develop branch
   push:
-    branches: [*]
+    branches: ["*"]
   pull_request:
     branches: [develop]
 
@@ -44,7 +44,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.OS }}-build-
             ${{ runner.OS }}-
-      
+
       - if: ${{ steps.cache-npm.outputs.cache-hit == false }}
         name: List the state of node modules
         continue-on-error: true
