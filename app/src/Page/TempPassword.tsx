@@ -3,6 +3,7 @@ import { Stack } from 'react-bootstrap';
 import { useMediaQuery } from 'react-responsive';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
+import MainLogo from '../Component/MainLogo';
 import NoticeLine from '../Component/NoticeLine';
 import './TempPassword.css';
 
@@ -21,11 +22,11 @@ function TempPassword() {
     return <div>hello Mobile - LD</div>;
   } else if (isTabletOrMobile && isPortrait) {
     return (
-      <div>
-        <img id="main_logo" src={`${process.env.PUBLIC_URL}/logo.png`}></img>
+      <div className="page">
+        <MainLogo type="blur"></MainLogo>
         <Stack gap={3} className="temppassword_stack">
-          <h3>가입한 이메일을 입력해주세요</h3>
-          <InputBox placeholder=""></InputBox>
+          <p id="notice_temppwd">가입한 이메일을 입력해주세요</p>
+          <InputBox placeholder="이메일을 입력하세요"></InputBox>
           <NoticeLine content="알림이 표시됩니다"></NoticeLine>
           <Button
             type="fill"

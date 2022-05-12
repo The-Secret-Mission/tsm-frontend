@@ -1,5 +1,6 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
+import MainLogo from '../Component/MainLogo';
 import SignupModule from '../Module/SignupModule';
 import './Signup.css';
 
@@ -19,8 +20,8 @@ function Signup() {
     return <div>hello Mobile - LD</div>;
   } else if (isTabletOrMobile && isPortrait) {
     return (
-      <div>
-        <img id="main_logo" src={`${process.env.PUBLIC_URL}/logo.png`}></img>
+      <div className="page">
+        <MainLogo type="blur"></MainLogo>
         <SignupModule></SignupModule>
       </div>
     );
