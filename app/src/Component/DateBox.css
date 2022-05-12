@@ -1,0 +1,17 @@
+.myDateBox {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  border-style: none;
+  height: 3.5rem;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-size: 1rem;
+  color: white;
+}
+
+.myDateBox:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white;
+  /* outline: 1px solid white; */
+}
