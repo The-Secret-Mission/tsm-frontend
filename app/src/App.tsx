@@ -15,11 +15,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Test />}></Route>
+          <Route path="/temp" element={<Home />}></Route>
           <Route path="*" element={<NotFound />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/temppwd" element={<TempPassword />}></Route>
-          <Route path="test" element={<Test />}></Route>
+          <Route path="/test" element={<Test />}></Route>
           <Route path="/main" element={<MainGate />}></Route>
           <Route path="/me" element={<MyInfo />}></Route>
           <Route path="/new_agency" element={<CreateAgency />}></Route>
