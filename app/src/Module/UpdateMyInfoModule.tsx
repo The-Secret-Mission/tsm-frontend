@@ -5,11 +5,16 @@ import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
 import './UpdateMyInfoModule.css';
 
-function UpdateMyInfoModule() {
+type UpdateMyInfoModuleProps = {
+  style?: React.CSSProperties;
+};
+
+function UpdateMyInfoModule(props: UpdateMyInfoModuleProps) {
   const [notice, setNotice] = useState('알림이 표시됩니다');
   return (
-    <div className="update_myinfo">
+    <div className="update_myinfo" style={props.style}>
       <Stack gap={3}>
+        <p className="update_myinfo_contnet">새로운 비밀번호를 입력해주세요</p>
         <PasswordBox placeholder="새 비밀번호를 입력해주세요"></PasswordBox>
         <PasswordBox placeholder="새 비밀번호를 다시 한번 입력해주세요"></PasswordBox>
         <NoticeLine content={notice}></NoticeLine>
