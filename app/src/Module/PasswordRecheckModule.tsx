@@ -5,16 +5,20 @@ import Button from '../Component/Button';
 import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
 import './PasswordRecheckModule.css';
-type PasswordRecheckModuleProp = {
+
+type PasswordRecheckModuleProps = {
   setPass: React.Dispatch<React.SetStateAction<boolean>>;
+  style?: React.CSSProperties;
 };
 
-function PasswordRecheckModule(props: PasswordRecheckModuleProp) {
+function PasswordRecheckModule(props: PasswordRecheckModuleProps) {
   const [notice, setNotice] = useState(' ');
   return (
-    <div className="password_recheck">
+    <div className="password_recheck" style={props.style}>
       <section id="content">
-        <h1 style={{ textAlign: 'center' }}>jikwon@gmail.com</h1>
+        <p style={{ fontSize: '1.5rem', textAlign: 'center' }}>
+          jikwon@gmail.com
+        </p>
         <p style={{ textAlign: 'right' }}>로 접속하셨습니다</p>
       </section>
       <PasswordBox

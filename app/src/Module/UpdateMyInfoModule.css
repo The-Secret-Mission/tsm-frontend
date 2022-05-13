@@ -1,5 +1,6 @@
-.update_myinfo {
-  /* position: relative; */
-  transform: translate(0%, 60%);
-  padding: 10%;
+.update_myinfo_contnet {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }

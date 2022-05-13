@@ -1,7 +1,11 @@
 #ca_welcom_message {
   font-size: 2rem;
+  word-wrap: break-word;
+  display: inline-block;
 }
 
 #ca_warning {
   color: #fe8686;
+  word-wrap: break-word;
+  display: inline-block;
 }

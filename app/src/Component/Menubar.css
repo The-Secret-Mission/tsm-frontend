@@ -1,19 +1,16 @@
 .menubar {
-  /* border-style: solid;
-  border-width: 1px; */
-  /* top: 100%; */
-  /* left: 0%; */
   bottom: 0px;
   position: fixed;
   /* transform: translate(0, 30%); */
   width: 100%;
-  max-width: 1224px;
+  /* max-width: 1224px; */
   min-width: 320px;
   align-items: center;
   justify-items: center;
   align-items: center;
   /* vertical-align: center; */
   text-align: center;
+  background-color: #242c37;
 }
 .menu {
   width: 20%;

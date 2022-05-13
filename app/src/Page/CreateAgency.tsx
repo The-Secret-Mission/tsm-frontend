@@ -1,20 +1,18 @@
-import React, { CSSProperties, useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
-// import ReactTooltip from 'react-tooltip';
 import DateBox from '../Component/DateBox';
 import './CreateAgency.css';
 import ReactTooltip from 'react-tooltip';
-
+/*
 const x = Math.max(window.innerWidth * 0.7, 300);
 const imgWidth = Math.max(window.innerWidth * 0.5, 550);
 const newW = (window.innerWidth - x) / 2 + 'px';
 const newH = (window.innerHeight - imgWidth) / 2 + 'px';
 
 const style: CSSProperties = {
-  width: '100%',
-  position: 'fixed',
+  position: 'relative',
   paddingTop: newH,
   paddingLeft: newW,
   paddingBottom: newH,
@@ -23,7 +21,7 @@ const style: CSSProperties = {
   transition: '500ms',
   opacity: 1,
 };
-
+*/
 function handleMouseEnter(
   setter: React.Dispatch<React.SetStateAction<boolean>>,
 ) {
@@ -45,91 +43,114 @@ const tips = {
   tooltipInvite: '초대할 요원의 이메일을 입력해주세요',
 };
 function CreateAgency() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const contentWidth = Math.max(300, windowWidth * 0.8);
+  const contentHeight = 500; //Math.max(500, windowHeight * 0.8);
+  const newW = (windowWidth - contentWidth) / 2;
+  const newH = (windowHeight - contentHeight) / 2;
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight);
+    });
+    return () => {
+      window.removeEventListener('resize', () => {
+        setWindowWidth(window.innerWidth);
+        setWindowHeight(window.innerHeight);
+      });
+    };
+  }, []);
+  const style: CSSProperties = {
+    position: 'relative',
+    paddingTop: newH + 'px',
+    paddingLeft: newW + 'px',
+    paddingBottom: newH + 'px',
+    paddingRight: newW + 'px',
+    transition: '500ms',
+  };
   const [ttName, showTTName] = useState(true);
   const [ttBudget, showTTBudget] = useState(true);
   const [ttDue, showTTDue] = useState(true);
   const [ttCode, showTTCode] = useState(true);
   const [ttInvite, showTTInvite] = useState(true);
   return (
-    <div className="page">
-      <div style={style}>
-        {ttName && <ReactTooltip id="tooltipName"></ReactTooltip>}
-        {ttBudget && <ReactTooltip id="tooltipBudget"></ReactTooltip>}
-        {ttDue && <ReactTooltip id="tooltipDue"></ReactTooltip>}
-        {ttCode && <ReactTooltip id="tooltipCode"></ReactTooltip>}
-        {ttInvite && <ReactTooltip id="tooltipInvite"></ReactTooltip>}
-        <Stack>
-          <p id="ca_welcom_message">요원님 안녕하세요</p>
-          <p>새로운 조직을 창설하기 위해 다음의 정보가 필요합니다</p>
-          <p id="ca_warning">
-            생성 이후에는 변경이 어려우니 신중히 결정해주세요
-          </p>
-        </Stack>
-        <Stack gap={2}>
-          <InputBox
-            data-for="tooltipName"
-            data-tip={tips.tooltipName}
-            placeholder="조직이름"
-            onMouseEnter={() => {
-              handleMouseEnter(showTTName);
-            }}
-            onMouseLeave={() => {
-              handleMouseLeave(showTTName);
-            }}
-          ></InputBox>
-          <InputBox
-            data-for="tooltipBudget"
-            data-tip={tips.tooltipBudget}
-            placeholder="예산액"
-            onMouseEnter={() => {
-              handleMouseEnter(showTTBudget);
-            }}
-            onMouseLeave={() => {
-              handleMouseLeave(showTTBudget);
-            }}
-          ></InputBox>
-          {/* <InputBox placeholder="날짜"></InputBox> */}
-          <DateBox
-            data-for="tooltipDue"
-            data-tip={tips.tooltipDue}
-            style={{ width: '100%' }}
-            min="2022-05-13"
-            max="2022-08-12"
-            onMouseEnter={() => {
-              handleMouseEnter(showTTDue);
-            }}
-            onMouseLeave={() => {
-              handleMouseLeave(showTTDue);
-            }}
-          ></DateBox>
-          <InputBox
-            data-for="tooltipCode"
-            data-tip={tips.tooltipCode}
-            placeholder="코드네임"
-            onMouseEnter={() => {
-              handleMouseEnter(showTTCode);
-            }}
-            onMouseLeave={() => {
-              handleMouseLeave(showTTCode);
-            }}
-          ></InputBox>
-          <InputBox
-            data-for="tooltipInvite"
-            data-tip={tips.tooltipInvite}
-            placeholder="요원"
-            onMouseEnter={() => {
-              handleMouseEnter(showTTInvite);
-            }}
-            onMouseLeave={() => {
-              handleMouseLeave(showTTInvite);
-            }}
-          ></InputBox>
-        </Stack>
-        <Stack direction="horizontal" gap={2}>
-          <Button kind="none" value="뒤로가기"></Button>
-          <Button kind="fill" value="창설하기"></Button>
-        </Stack>
-      </div>
+    <div className="page" style={style}>
+      {ttName && <ReactTooltip id="tooltipName"></ReactTooltip>}
+      {ttBudget && <ReactTooltip id="tooltipBudget"></ReactTooltip>}
+      {ttDue && <ReactTooltip id="tooltipDue"></ReactTooltip>}
+      {ttCode && <ReactTooltip id="tooltipCode"></ReactTooltip>}
+      {ttInvite && <ReactTooltip id="tooltipInvite"></ReactTooltip>}
+      <Stack>
+        <p id="ca_welcom_message">요원님 안녕하세요</p>
+        <p>새로운 조직을 창설하기 위해 다음의 정보가 필요합니다</p>
+        <p id="ca_warning">생성 이후에는 변경이 어려우니 신중히 결정해주세요</p>
+      </Stack>
+      <Stack gap={2}>
+        <InputBox
+          data-for="tooltipName"
+          data-tip={tips.tooltipName}
+          placeholder="조직이름"
+          onMouseEnter={() => {
+            handleMouseEnter(showTTName);
+          }}
+          onMouseLeave={() => {
+            handleMouseLeave(showTTName);
+          }}
+        ></InputBox>
+        <InputBox
+          data-for="tooltipBudget"
+          data-tip={tips.tooltipBudget}
+          placeholder="예산액"
+          onMouseEnter={() => {
+            handleMouseEnter(showTTBudget);
+          }}
+          onMouseLeave={() => {
+            handleMouseLeave(showTTBudget);
+          }}
+        ></InputBox>
+        {/* <InputBox placeholder="날짜"></InputBox> */}
+        <DateBox
+          data-for="tooltipDue"
+          data-tip={tips.tooltipDue}
+          style={{ width: '100%' }}
+          min="2022-05-13"
+          max="2022-08-12"
+          onMouseEnter={() => {
+            handleMouseEnter(showTTDue);
+          }}
+          onMouseLeave={() => {
+            handleMouseLeave(showTTDue);
+          }}
+        ></DateBox>
+        <InputBox
+          data-for="tooltipCode"
+          data-tip={tips.tooltipCode}
+          placeholder="코드네임"
+          onMouseEnter={() => {
+            handleMouseEnter(showTTCode);
+          }}
+          onMouseLeave={() => {
+            handleMouseLeave(showTTCode);
+          }}
+        ></InputBox>
+        <InputBox
+          data-for="tooltipInvite"
+          data-tip={tips.tooltipInvite}
+          placeholder="요원"
+          onMouseEnter={() => {
+            handleMouseEnter(showTTInvite);
+          }}
+          onMouseLeave={() => {
+            handleMouseLeave(showTTInvite);
+          }}
+        ></InputBox>
+      </Stack>
+      <Stack direction="horizontal" gap={2}>
+        <Button kind="none" value="뒤로가기"></Button>
+        <Button kind="fill" value="창설하기"></Button>
+      </Stack>
     </div>
   );
 }
