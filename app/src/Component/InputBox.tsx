@@ -1,9 +1,15 @@
 import React, { CSSProperties } from 'react';
-import { EventHandlerProps } from '../Type/EventHandlerProps';
+import {
+  MouseEventHandler,
+  ChangeEventHandler,
+  KeyboardEventHander,
+} from '../Type/EventHandlerProps';
 import { ReactTooltipProps } from '../Type/ReactTooltipProps';
 import './InputBox.css';
 
-type InputBoxProps = EventHandlerProps &
+type InputBoxProps = KeyboardEventHander &
+  ChangeEventHandler &
+  MouseEventHandler &
   ReactTooltipProps & {
     placeholder: string;
     style?: CSSProperties;

@@ -1,5 +1,5 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
-import { EventHandlerProps } from '../Type/EventHandlerProps';
+import { MouseEventHandler } from '../Type/EventHandlerProps';
 
 // const imgWidth = Math.max(window.innerWidth * 0.5, 300);
 // const newW = (window.innerWidth - imgWidth) / 2 + 'px';
@@ -27,7 +27,7 @@ import { EventHandlerProps } from '../Type/EventHandlerProps';
 //   zIndex: 1,
 // };
 
-type MainLogoProps = EventHandlerProps & {
+type MainLogoProps = MouseEventHandler & {
   type: 'blur' | 'non_blur';
 };
 

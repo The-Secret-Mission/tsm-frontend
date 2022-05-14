@@ -1,9 +1,9 @@
 import React, { CSSProperties } from 'react';
-import { EventHandlerProps } from '../Type/EventHandlerProps';
+import { MouseEventHandler } from '../Type/EventHandlerProps';
 import { ReactTooltipProps } from '../Type/ReactTooltipProps';
 import './DateBox.css';
 
-type DateBoxProps = EventHandlerProps &
+type DateBoxProps = MouseEventHandler &
   ReactTooltipProps & {
     min?: string;
     max?: string;
