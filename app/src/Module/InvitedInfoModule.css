@@ -1,0 +1,50 @@
+#tag-box {
+  min-height: 50px;
+  max-height: 170px;
+  overflow-y: scroll;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  align-content: space-betwwen;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+#tag-box {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+#tag-box::-webkit-scrollbar {
+  display: none; /*Chrome, Safari, Opera*/
+}
+
+.tag-item {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-around; */
+  margin: 5px;
+  background-color: rgb(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: white;
+}
+.tag-item-text {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.tag-item-button {
+  /* display: flex; */
+  /* justify-items: center; */
+  /* align-items: center; */
+  color: red;
+  background-color: rgb(255, 255, 255, 0);
+  border-style: none;
+  font-weight: bold;
+  /* border-radius: 10px; */
+}
