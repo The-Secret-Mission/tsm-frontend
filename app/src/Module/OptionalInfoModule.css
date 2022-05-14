@@ -1,0 +1,8 @@
+#text_area {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+#text_area::-webkit-scrollbar {
+  display: none; /*Chrome, Safari, Opera*/
+}
