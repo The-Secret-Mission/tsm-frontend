@@ -9,6 +9,7 @@ import Test from './Page/Test';
 import MyInfo from './Page/MyInfo';
 import MainGate from './Page/MainGate';
 import CreateAgency from './Page/CreateAgency';
+import Agency from './Page/Agency';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/main" element={<MainGate />}></Route>
           <Route path="/me" element={<MyInfo />}></Route>
           <Route path="/new_agency" element={<CreateAgency />}></Route>
+          <Route path="/agency/:groupid" element={<Agency />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
