@@ -2,7 +2,7 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import MenuBar from '../Component/Menubar';
 import NoticeLine from '../Component/NoticeLine';
-import './MissionModule.css';
+import './CSS/MissionModule.css';
 
 const style: CSSProperties = {
   paddingTop: '20px',

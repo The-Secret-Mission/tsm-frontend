@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import './NoticeLine.css';
+import './CSS/NoticeLine.css';
 
 type NoticeLineProps = {
   content: string;

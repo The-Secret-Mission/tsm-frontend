@@ -4,7 +4,7 @@ import AgencyAfterModule from '../Module/AgencyAfterModule';
 import AgencyBeforeModule from '../Module/AgencyBeforeModule';
 import MissionModule from '../Module/MissionModule';
 
-import './Agency.css';
+import './CSS/Agency.css';
 
 function Agency() {
   const params = useParams();

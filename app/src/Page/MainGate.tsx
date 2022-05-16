@@ -3,7 +3,7 @@ import AcceptedList from '../Component/AcceptedList';
 import Button from '../Component/Button';
 import InvitedList from '../Component/InvitedList';
 import MenuBar from '../Component/Menubar';
-import './MainGate.css';
+import './CSS/MainGate.css';
 
 const h = window.innerWidth * 0.2;
 const style: CSSProperties = {

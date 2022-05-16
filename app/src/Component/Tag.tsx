@@ -1,5 +1,5 @@
 import React from 'react';
-import './Tag.css';
+import './CSS/Tag.css';
 
 type TagProps = {
   color: string;

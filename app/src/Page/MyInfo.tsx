@@ -3,7 +3,7 @@ import MenuBar from '../Component/Menubar';
 import PasswordRecheckModule from '../Module/PasswordRecheckModule';
 import UpdateMyInfoModule from '../Module/UpdateMyInfoModule';
 
-import './MyInfo.css';
+import './CSS/MyInfo.css';
 
 function MyInfo() {
   const [pass, setPass] = useState(false);

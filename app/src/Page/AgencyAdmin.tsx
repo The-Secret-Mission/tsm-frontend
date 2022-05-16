@@ -4,7 +4,7 @@ import Button from '../Component/Button';
 import NoticeLine from '../Component/NoticeLine';
 import NotyetTag from '../Component/NotyetTag';
 import SignedupTag from '../Component/SigneupTag';
-import './AgencyAdmin.css';
+import './CSS/AgencyAdmin.css';
 
 const h = window.innerWidth * 0.2;
 const style: CSSProperties = {

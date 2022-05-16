@@ -5,7 +5,7 @@ import {
   KeyboardEventHander,
 } from '../Type/EventHandlerProps';
 import { ReactTooltipProps } from '../Type/ReactTooltipProps';
-import './InputBox.css';
+import './CSS/InputBox.css';
 
 type InputBoxProps = KeyboardEventHander &
   ChangeEventHandler &

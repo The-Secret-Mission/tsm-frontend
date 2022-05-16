@@ -5,7 +5,7 @@ import LogoSvg from '../Icons/LogoIcon';
 import LogoutSvg from '../Icons/LogoutIcon';
 import MyInfoSvg from '../Icons/MyInfoIcon';
 import QuestionSvg from '../Icons/QuestionIcon';
-import './Menubar.css';
+import './CSS/Menubar.css';
 
 function MenuBar() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import MainLogo from '../Component/MainLogo';
 import SignupModule from '../Module/SignupModule';
-import './Signup.css';
+import './CSS/Signup.css';
 
 function Signup() {
   return (

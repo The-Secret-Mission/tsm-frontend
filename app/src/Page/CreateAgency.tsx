@@ -2,7 +2,7 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 import BasicInfoModule from '../Module/BasicInfoModule';
 import InvitedInfoModule from '../Module/InvitedInfoModule';
 import OptionalInfoModule from '../Module/OptionalInfoModule';
-import './CreateAgency.css';
+import './CSS/CreateAgency.css';
 
 function CreateAgency() {
   const [page, setPage] = useState(1);

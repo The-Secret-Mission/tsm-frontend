@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stack } from 'react-bootstrap';
-import './AcceptedList.css';
+import './CSS/AcceptedList.css';
 
 type AcceptedListProps = {
   data: string[];

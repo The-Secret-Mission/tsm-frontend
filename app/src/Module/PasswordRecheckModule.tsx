@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '../Component/Button';
 import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
-import './PasswordRecheckModule.css';
+import './CSS/PasswordRecheckModule.css';
 
 type PasswordRecheckModuleProps = {
   setPass: React.Dispatch<React.SetStateAction<boolean>>;
