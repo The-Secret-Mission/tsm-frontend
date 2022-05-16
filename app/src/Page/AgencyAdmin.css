@@ -1,0 +1,103 @@
+#name_agency {
+  margin-bottom: 1rem;
+}
+/* 요원들 상태 박스 */
+.manage_list_with_scroll {
+  height: 10rem;
+  overflow-y: scroll;
+  margin-bottom: 30px;
+  background-color: rgb(255, 255, 255, 0.3);
+  border-radius: 15px;
+  list-style-type: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.manage_list_with_scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.manage_list_with_scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.manage_list_element {
+  /* margin-top: 1rem; */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* 메시지 박스 - viewmode */
+.manage_message {
+  width: 100%;
+}
+
+/* 메시지 박스  */
+.manage_message textarea {
+  width: 100%;
+  border-radius: 15px;
+  border-style: none;
+  height: 7rem;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1rem;
+  color: black;
+  resize: none;
+}
+.manage_message textarea {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.manage_message textarea::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.manage_message textarea:disabled {
+  background-color: rgb(255, 255, 255, 0.3);
+  border-style: none;
+}
+
+/* manage budget */
+.manage_budget input {
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 80%;
+  color: black;
+  border-style: none;
+}
+
+.manage_budget input:disabled {
+  background-color: rgb(255, 255, 255, 0.3);
+  border-style: none;
+}
+
+/* manage danger */
+
+.manage_danger {
+  margin-top: 2rem;
+  padding: 10px;
+}
+
+#manage_danger_name {
+  color: #a90d0d;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+#manage_danger_notice {
+  font-size: 0.9rem;
+}
+#manage_dagner_kind {
+  text-align: center;
+  width: 80%;
+  margin: 0;
+}
