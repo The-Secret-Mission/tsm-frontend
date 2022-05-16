@@ -2,7 +2,7 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import MenuBar from '../Component/Menubar';
 import NoticeLine from '../Component/NoticeLine';
-import './Mission.css';
+import './MissionModule.css';
 
 const style: CSSProperties = {
   paddingTop: '20px',
@@ -48,10 +48,6 @@ function Mission() {
   useEffect(() => {
     if (param.groupid == '10') setOver(true);
   }, []);
-  useEffect(() => {
-    console.log('effect');
-    console.log(number);
-  }, [number]);
 
   return (
     <div className="page">
