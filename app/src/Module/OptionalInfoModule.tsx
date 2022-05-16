@@ -2,7 +2,7 @@ import React, { CSSProperties, useState } from 'react';
 import { Stack } from 'react-bootstrap';
 import Button from '../Component/Button';
 import NoticeLine from '../Component/NoticeLine';
-import './OptionalInfoModule.css';
+import './CSS/OptionalInfoModule.css';
 
 type OptionalInfoModuleProps = {
   setter: React.Dispatch<React.SetStateAction<number>>;

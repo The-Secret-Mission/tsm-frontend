@@ -3,7 +3,7 @@ import { Stack } from 'react-bootstrap';
 import Button from '../Component/Button';
 import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
-import './UpdateMyInfoModule.css';
+import './CSS/UpdateMyInfoModule.css';
 
 type UpdateMyInfoModuleProps = {
   style?: React.CSSProperties;

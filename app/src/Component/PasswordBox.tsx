@@ -1,5 +1,5 @@
 import React from 'react';
-import './PasswordBox.css';
+import './CSS/PasswordBox.css';
 
 type PasswordBoxProps = {
   placeholder: string;

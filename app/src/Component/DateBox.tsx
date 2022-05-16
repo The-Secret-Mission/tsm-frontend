@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { MouseEventHandler } from '../Type/EventHandlerProps';
 import { ReactTooltipProps } from '../Type/ReactTooltipProps';
-import './DateBox.css';
+import './CSS/DateBox.css';
 
 type DateBoxProps = MouseEventHandler &
   ReactTooltipProps & {

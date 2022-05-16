@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Button from '../Component/Button';
 import MenuBar from '../Component/Menubar';
 import ClosedLetter from '../Icons/ClosedLetter';
-import './AgencyBeforeModule.css';
+import './CSS/AgencyBeforeModule.css';
 const h = window.innerWidth * 0.2;
 const style: CSSProperties = {
   paddingTop: '20px',

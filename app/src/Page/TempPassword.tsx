@@ -4,7 +4,7 @@ import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
 import MainLogo from '../Component/MainLogo';
 import NoticeLine from '../Component/NoticeLine';
-import './TempPassword.css';
+import './CSS/TempPassword.css';
 
 function TempPassword() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

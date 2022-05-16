@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import MenuBar from '../Component/Menubar';
 import NoticeLine from '../Component/NoticeLine';
 import ConfidentialDocumentSticker from '../Icons/ConfidentialDocumentSticker';
-import './AgencyAfterModule.css';
+import './CSS/AgencyAfterModule.css';
 
 const h = window.innerWidth * 0.2;
 const style: CSSProperties = {

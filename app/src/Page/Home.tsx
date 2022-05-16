@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MainLogo from '../Component/MainLogo';
 import LoginModule from '../Module/LoginModule';
-import './Home.css';
+import './CSS/Home.css';
 
 function Home() {
   const [open, setOpen] = useState(false);

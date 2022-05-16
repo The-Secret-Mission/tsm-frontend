@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { MouseEventHandler } from '../Type/EventHandlerProps';
 
-import './Button.css';
+import './CSS/Button.css';
 
 type ButtonProps = MouseEventHandler & {
   kind: 'none' | 'fill';

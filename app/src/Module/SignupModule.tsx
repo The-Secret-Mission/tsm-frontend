@@ -5,7 +5,7 @@ import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
 import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
-import './SignupModule.css';
+import './CSS/SignupModule.css';
 /*
 const imgWidth = Math.max(window.innerWidth * 0.5, 300);
 const newW = (window.innerWidth - imgWidth) / 2 + 'px';

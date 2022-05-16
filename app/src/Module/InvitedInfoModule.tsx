@@ -3,7 +3,7 @@ import { Stack } from 'react-bootstrap';
 // import ReactTooltip from 'react-tooltip';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
-import './InvitedInfoModule.css';
+import './CSS/InvitedInfoModule.css';
 
 function handleMouseEnter(
   setter: React.Dispatch<React.SetStateAction<boolean>>,
