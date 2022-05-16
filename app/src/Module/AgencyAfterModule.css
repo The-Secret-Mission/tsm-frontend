@@ -1,0 +1,40 @@
+#agency_after_info_notice {
+  text-align: center;
+}
+
+#not_button {
+  margin-left: 29%;
+  background-color: rgb(255, 255, 255, 0);
+  border-radius: 30px;
+  border-style: none;
+  height: 3rem;
+  width: 40%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+#not_button:hover {
+  cursor: default;
+}
+
+#agree_button {
+  margin-left: 29%;
+  background-color: #a90d0d;
+  border-radius: 30px;
+  border-style: none;
+  height: 3rem;
+  width: 40%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+#agree_button:hover {
+  outline: none;
+  box-shadow: 0 0 0 2px white;
+}
