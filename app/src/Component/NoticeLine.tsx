@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import './NoticeLine.css';
 
 type NoticeLineProps = {
   content: string;
+  style?: CSSProperties;
 };
 function NoticeLine(props: NoticeLineProps) {
-  return <p id="notice">{props.content}</p>;
+  return (
+    <p id="notice" style={props.style}>
+      {props.content}
+    </p>
+  );
 }
 
 export default NoticeLine;
