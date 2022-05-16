@@ -21,7 +21,7 @@ function ClosedLetter() {
       ></rect>
       <polygon
         id="bottom"
-        points="0 200, 400 200, 240 80 160 80"
+        points="0 200, 400 200, 240 80, 160 80"
         stroke="black"
         fill="#BF933E"
         strokeWidth={2}
