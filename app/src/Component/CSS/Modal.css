@@ -1,0 +1,37 @@
+.my_modal {
+  position: fixed;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+.my_modal_shape {
+  position: fixed;
+  width: calc(100vw * 0.8);
+  height: calc(100vh * 0.5);
+  z-index: 4;
+  margin-top: calc(100vh * 0.15);
+  margin-bottom: calc(100vh * 0.35);
+  margin-left: calc(100vw * 0.1);
+  margin-right: calc(100vw * 0.1);
+  padding: 0;
+}
+
+.my_modal_header {
+  height: 10%;
+  background-color: #4fb71e;
+
+  border-radius: 20px 20px 0 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom-style: solid;
+  border-width: 0 0 1 0;
+  border-color: white;
+}
+.my_modal_content {
+  height: 90%;
+  background-color: #242c37;
+  border-radius: 0 0 20px 20px;
+  padding: 2rem;
+}

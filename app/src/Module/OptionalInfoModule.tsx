@@ -7,12 +7,16 @@ import './CSS/OptionalInfoModule.css';
 type OptionalInfoModuleProps = {
   setter: React.Dispatch<React.SetStateAction<number>>;
   style?: CSSProperties;
+  handleOpen: () => void;
 };
+
+function handleCreateNewAgency() {
+  return Promise.resolve();
+}
 function OptionalInfoModule(props: OptionalInfoModuleProps) {
   const [message, setMessage] = useState<string>('');
   return (
     <div className="page" id="nodule-invited-info" style={props.style}>
-      {' '}
       <Stack>
         <p id="ca_welcom_message">요원님 안녕하세요</p>
         <p>조직의 요원들에게 메시지를 남겨주세요</p>
@@ -49,7 +53,13 @@ function OptionalInfoModule(props: OptionalInfoModuleProps) {
           kind="fill"
           value="창설하기"
           onClick={() => {
-            alert('성공');
+            handleCreateNewAgency()
+              .then(() => {
+                props.handleOpen();
+              })
+              .catch(() => {
+                alert('Something went wrong');
+              });
           }}
         ></Button>
       </Stack>

@@ -3,3 +3,12 @@
   padding-top: 3px;
   padding-bottom: 3px;
 }
+
+/* for disable dragging text */
+/* .acceted_element {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} */

@@ -7,7 +7,13 @@ import './CSS/UpdateMyInfoModule.css';
 
 type UpdateMyInfoModuleProps = {
   style?: React.CSSProperties;
+  setOkIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setAlertIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+function handlePasswordChange() {
+  return Promise.resolve();
+}
 
 function UpdateMyInfoModule(props: UpdateMyInfoModuleProps) {
   const [notice, setNotice] = useState('알림이 표시됩니다');
@@ -24,8 +30,23 @@ function UpdateMyInfoModule(props: UpdateMyInfoModuleProps) {
           style={{ color: '#FE8686' }}
           kind="none"
           value="탈퇴하기"
+          onClick={() => {
+            props.setAlertIsOpen(true);
+          }}
         ></Button>
-        <Button kind="fill" value="변경하기"></Button>
+        <Button
+          kind="fill"
+          value="변경하기"
+          onClick={() => {
+            handlePasswordChange()
+              .then(() => {
+                props.setOkIsOpen(true);
+              })
+              .catch(() => {
+                setNotice('Something went wrong');
+              });
+          }}
+        ></Button>
       </Stack>
     </div>
   );
