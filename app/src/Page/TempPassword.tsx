@@ -1,5 +1,6 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
 import MainLogo from '../Component/MainLogo';
@@ -14,7 +15,7 @@ function TempPassword() {
   const contentHeight = 250; //Math.max(250, windowWidth * 0.5);
   const newW = (windowWidth - contentWidth) / 2;
   const newH = (windowHeight - contentHeight) / 2;
-
+  const navigate = useNavigate();
   useEffect(() => {
     window.addEventListener('resize', () => {
       setWindowWidth(window.innerWidth);
@@ -49,6 +50,9 @@ function TempPassword() {
             kind="none"
             style={{ width: '40%' }}
             value="뒤로가기"
+            onClick={() => {
+              return navigate(-1);
+            }}
           ></Button>
           <Button
             kind="fill"
