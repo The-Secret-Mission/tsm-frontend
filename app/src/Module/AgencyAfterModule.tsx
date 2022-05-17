@@ -7,7 +7,7 @@ import './CSS/AgencyAfterModule.css';
 
 const h = window.innerWidth * 0.2;
 const style: CSSProperties = {
-  paddingTop: '20px',
+  paddingTop: '15%',
   paddingLeft: '20px',
   paddingRight: '20px',
   // paddingBottom: h,
