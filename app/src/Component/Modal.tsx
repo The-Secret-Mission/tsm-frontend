@@ -6,6 +6,7 @@ import './CSS/Modal.css';
 type ModalProps = {
   handleClose: () => void;
   children?: React.ReactNode;
+  hiddenButton?: boolean;
 };
 function Modal(props: ModalProps) {
   return (
@@ -26,14 +27,16 @@ function Modal(props: ModalProps) {
         </div>
         <div className="my_modal_content">
           {props.children}
-          <Button
-            style={{ marginLeft: '25%' }}
-            kind="fill"
-            value="확인"
-            onClick={() => {
-              props.handleClose();
-            }}
-          ></Button>
+          {!props.hiddenButton ? (
+            <Button
+              style={{ marginLeft: '25%' }}
+              kind="fill"
+              value="확인"
+              onClick={() => {
+                props.handleClose();
+              }}
+            ></Button>
+          ) : null}
         </div>
       </div>
     </div>
