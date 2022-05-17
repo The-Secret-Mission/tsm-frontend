@@ -7,7 +7,7 @@ import './CSS/OptionalInfoModule.css';
 type OptionalInfoModuleProps = {
   setter: React.Dispatch<React.SetStateAction<number>>;
   style?: CSSProperties;
-  handleOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  handleOpen: () => void;
 };
 
 function handleCreateNewAgency() {
@@ -55,7 +55,7 @@ function OptionalInfoModule(props: OptionalInfoModuleProps) {
           onClick={() => {
             handleCreateNewAgency()
               .then(() => {
-                props.handleOpen(true);
+                props.handleOpen();
               })
               .catch(() => {
                 alert('Something went wrong');
