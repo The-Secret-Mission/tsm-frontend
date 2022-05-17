@@ -44,11 +44,18 @@ function TempPassword() {
         <p id="notice_temppwd">가입한 이메일을 입력해주세요</p>
         <InputBox placeholder="이메일을 입력하세요"></InputBox>
         <NoticeLine content="알림이 표시됩니다"></NoticeLine>
-        <Button
-          kind="fill"
-          style={{ position: 'relative', left: '20%', width: '60%' }}
-          value="임시 패스워드 보내기"
-        ></Button>
+        <Stack direction="horizontal" gap={3}>
+          <Button
+            kind="none"
+            style={{ width: '40%' }}
+            value="뒤로가기"
+          ></Button>
+          <Button
+            kind="fill"
+            style={{ width: '60%' }}
+            value="임시 패스워드 보내기"
+          ></Button>
+        </Stack>
       </Stack>
     </div>
   );
