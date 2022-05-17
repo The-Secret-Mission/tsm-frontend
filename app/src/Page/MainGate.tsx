@@ -31,7 +31,6 @@ function MainGate() {
     {
       groupid: '10',
       name: 'cocoa',
-      invitor: 'jikwon@gamil.com',
       codename: 'jikwon',
       due: '2022-05-10',
       budget: '20000',
@@ -96,16 +95,19 @@ function MainGate() {
         <section className="page">
           <p id="list_title">내 조직</p>
           <div id="heading">
-            <AcceptedList data={['이름', '날짜', '예산액']}></AcceptedList>
+            <AcceptedList
+              data={{
+                name: '이름',
+                due: '날짜',
+                budget: '예산액',
+                groupid: '',
+                codename: '',
+              }}
+            ></AcceptedList>
           </div>
           <ul className="list_with_scroll">
             {accetedList.map((elem, index) => {
-              return (
-                <AcceptedList
-                  key={index}
-                  data={[elem.name, elem.due, elem.budget, elem.groupid]}
-                ></AcceptedList>
-              );
+              return <AcceptedList key={index} data={elem}></AcceptedList>;
             })}
           </ul>
         </section>
