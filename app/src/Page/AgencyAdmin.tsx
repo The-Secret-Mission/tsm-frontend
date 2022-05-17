@@ -22,7 +22,7 @@ function AgencyAdmin() {
     { email: 'jikwon@gmail.com', status: true },
     { email: 'testmail@gmail.com', status: false },
     { email: 'marvel_movi2@naver.com', status: true },
-    { email: 'catdog_whatever@gmail.com', status: false },
+    { email: 'catdog_wha22tever110101@gmail.com', status: false },
   ];
 
   useEffect(() => {
@@ -45,14 +45,18 @@ function AgencyAdmin() {
               if (element.status == true)
                 return (
                   <li key={index} className="manage_list_element">
-                    {element.email + ' '}
-                    <SignedupTag />
+                    <Stack direction="horizontal" gap={2}>
+                      <p className="agent_email_info">{element.email + ' '}</p>
+                      <SignedupTag />
+                    </Stack>
                   </li>
                 );
               return (
                 <li key={index} className="manage_list_element">
-                  {element.email + ' '}
-                  <NotyetTag />
+                  <Stack direction="horizontal" gap={2}>
+                    <p className="agent_email_info">{element.email + ' '}</p>
+                    <NotyetTag />
+                  </Stack>
                 </li>
               );
             })}
