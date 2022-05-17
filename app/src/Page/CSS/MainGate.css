@@ -28,19 +28,25 @@
   height: 7rem;
   overflow-y: scroll;
   margin-bottom: 30px;
-
   background-color: rgb(255, 255, 255, 0.3);
   border-radius: 0 0 15px 15px;
   list-style-type: none;
-  /* padding-top: 15px; */
   padding-bottom: 10px;
   padding-left: 1rem;
   padding-right: 1rem;
-  scrollbar-width: 1rem;
 }
 
 .list_with_scroll li:hover {
   background-color: #fe8686;
+}
+
+.list_with_scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.list_with_scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
 }
 
 #heading {
@@ -55,7 +61,7 @@
   /* text-align: center; */
   vertical-align: center;
   padding-left: 1rem;
-  padding-right: 2rem;
+  padding-right: 1rem;
 }
 
 #list_title {

@@ -6,6 +6,7 @@ import InputBox from '../Component/InputBox';
 import InvitedList from '../Component/InvitedList';
 import MenuBar from '../Component/Menubar';
 import Modal from '../Component/Modal';
+import NoticeLine from '../Component/NoticeLine';
 import { AcceptedListInfo } from '../Type/AcceptedList';
 import { InvitedListInfo } from '../Type/InvitedListInfo';
 import './CSS/MainGate.css';
@@ -22,15 +23,15 @@ function MainGate() {
   const invitedList: InvitedListInfo[] = [
     {
       groupid: '10',
-      name: 'cocoa',
-      invitor: 'jikwon@gamil.com',
+      name: 'cocoa스파이더맨 노웨이 홈 테스트',
+      invitor: 'jikwon1011@gamil.com',
       codename: 'jikwon',
     },
   ];
   const accetedList: AcceptedListInfo[] = [
     {
       groupid: '10',
-      name: 'cocoa',
+      name: '스파이더맨노웨이홈',
       codename: 'jikwon',
       due: '2022-05-10',
       budget: '20000',
@@ -54,17 +55,32 @@ function MainGate() {
               {invitedList[selected].name + '에 초대하였습니다'}
             </p>
             <p style={{ textAlign: 'center' }}>
-              {'기본 코드네임은' + invitedList[selected].codename + ' 입니다'}
+              {'기본 코드네임은 ' + invitedList[selected].codename + ' 입니다'}
             </p>
+            <NoticeLine content="이후 변경이 불가능합니다"></NoticeLine>
             <InputBox
               style={{ width: '100%' }}
-              placeholder="새로운 코드네임을 입력하세요"
+              placeholder="새로운 코드네임을 입력하세요. 최대 10자"
             ></InputBox>
           </div>
           <div>
-            <Stack direction="horizontal" gap={2}>
-              <Button kind="fill" value="변경하기"></Button>
-              <Button kind="none" value="바로 입장하기"></Button>
+            <Stack gap={2}>
+              <Button
+                style={{ marginLeft: '25%' }}
+                kind="fill"
+                value="변경하기"
+              ></Button>
+              <Button
+                style={{
+                  marginLeft: '25%',
+                  fontSize: '12px',
+                  height: '1%',
+                  paddingTop: 0,
+                  paddingBottom: 0,
+                }}
+                kind="none"
+                value="그대로 입장하기"
+              ></Button>
             </Stack>
           </div>
         </Modal>
@@ -92,7 +108,7 @@ function MainGate() {
             })}
           </ul>
         </section>
-        <section className="page">
+        <section className="accepted">
           <p id="list_title">내 조직</p>
           <div id="heading">
             <AcceptedList

@@ -12,10 +12,16 @@ function InvitedList(props: InvitedListProps) {
   return (
     <li onClick={props.onClick}>
       <Stack direction="horizontal">
-        <p className="invited_element" style={{ width: '50%' }}>
+        <p
+          className="invited_element"
+          style={{ width: '50%', paddingRight: '5px' }}
+        >
           {props.data[0]}
         </p>
-        <p className="invited_element" style={{ width: '50%' }}>
+        <p
+          className="invited_element"
+          style={{ width: '50%', paddingRight: '5px' }}
+        >
           {props.data[1]}
         </p>
       </Stack>
