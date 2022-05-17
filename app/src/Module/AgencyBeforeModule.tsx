@@ -13,7 +13,11 @@ const style: CSSProperties = {
   paddingBottom: h,
 };
 
-function AgencyBeforeModule() {
+type AgencyBeforeModuleProps = {
+  handleOpen: () => void;
+};
+
+function AgencyBeforeModule(props: AgencyBeforeModuleProps) {
   const params = useParams();
   const [admin, setAdmin] = useState(false);
 
@@ -63,7 +67,11 @@ function AgencyBeforeModule() {
             </p>
           </div>
         </section>
-        <ClosedLetter></ClosedLetter>
+        <ClosedLetter
+          onClick={() => {
+            props.handleOpen();
+          }}
+        ></ClosedLetter>
       </div>
 
       <MenuBar></MenuBar>

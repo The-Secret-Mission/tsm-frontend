@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
+import './ClosedLetter.css';
 
-function ClosedLetter() {
+type ClosedLetterProps = {
+  onClick: () => void;
+  style?: CSSProperties;
+};
+
+function ClosedLetter(props: ClosedLetterProps) {
   return (
     <svg
+      id="clsed_letter"
       style={{ marginLeft: '25%' }}
       width="50%"
       viewBox="0 0 400 200"
-      onClick={() => {
-        alert('기다려');
-      }}
+      onClick={props.onClick}
     >
       <rect
         width="100%"

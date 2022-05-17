@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Modal from '../Component/Modal';
 import AgencyAfterModule from '../Module/AgencyAfterModule';
 import AgencyBeforeModule from '../Module/AgencyBeforeModule';
 import MissionModule from '../Module/MissionModule';
@@ -19,9 +20,23 @@ function Agency() {
     if (params.groupid == '10') setOpen(true);
     else if (params.groupid == '11') setOpen(true);
   }, []);
+  const [msModalIsOpn, setMsModalOpen] = useState(false);
+  function handleMsModalClose() {
+    setMsModalOpen(false);
+  }
+  function handleMsModalOpen() {
+    setMsModalOpen(true);
+  }
+  if (!dday) {
+    return (
+      <div>
+        {msModalIsOpn ? <Modal handleClose={handleMsModalClose}></Modal> : null}
+        <AgencyBeforeModule handleOpen={handleMsModalOpen}></AgencyBeforeModule>
+        ;
+      </div>
+    );
+  } else if (!open) return <AgencyAfterModule></AgencyAfterModule>;
 
-  if (!dday) return <AgencyBeforeModule></AgencyBeforeModule>;
-  else if (!open) return <AgencyAfterModule></AgencyAfterModule>;
   return <MissionModule></MissionModule>;
 }
 

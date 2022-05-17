@@ -13,6 +13,7 @@ const style: CSSProperties = {
   // paddingBottom: h,
   // height: window.innerHeight,
 };
+
 function AgencyAfterModule() {
   const params = useParams();
   const [admin, setAdmin] = useState(false);
