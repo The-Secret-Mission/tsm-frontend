@@ -20,7 +20,10 @@ function AcceptedList(props: AcceptedListProps) {
       }}
     >
       <Stack direction="horizontal">
-        <p className="acceted_element" style={{ width: '35%' }}>
+        <p
+          className="acceted_element"
+          style={{ width: '35%', paddingRight: '5px' }}
+        >
           {props.data.name}
         </p>
         <p className="acceted_element" style={{ width: '35%' }}>

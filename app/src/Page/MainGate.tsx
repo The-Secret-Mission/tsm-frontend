@@ -23,15 +23,15 @@ function MainGate() {
   const invitedList: InvitedListInfo[] = [
     {
       groupid: '10',
-      name: 'cocoa',
-      invitor: 'jikwon@gamil.com',
+      name: 'cocoa스파이더맨 노웨이 홈 테스트',
+      invitor: 'jikwon1011@gamil.com',
       codename: 'jikwon',
     },
   ];
   const accetedList: AcceptedListInfo[] = [
     {
       groupid: '10',
-      name: 'cocoa',
+      name: '스파이더맨노웨이홈',
       codename: 'jikwon',
       due: '2022-05-10',
       budget: '20000',
