@@ -1,5 +1,6 @@
 import React, { CSSProperties, useState } from 'react';
 import { Stack } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import AcceptedList from '../Component/AcceptedList';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
@@ -37,6 +38,7 @@ function MainGate() {
       budget: '20000',
     },
   ];
+  const navigate = useNavigate();
   const [isEntermodalOpen, setEnterModalOpen] = useState(false);
   const [selected, setSeleted] = useState(-1);
   function handleClose() {
@@ -131,6 +133,9 @@ function MainGate() {
           kind="fill"
           style={{ position: 'relative', left: '50%' }}
           value="새조직 창설하기"
+          onClick={() => {
+            return navigate('/new_agency');
+          }}
         ></Button>
       </div>
 

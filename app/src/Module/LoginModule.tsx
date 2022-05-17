@@ -1,6 +1,6 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
 import NoticeLine from '../Component/NoticeLine';
@@ -34,7 +34,7 @@ function LoginModule(props: LoginModuleProps) {
   const contentHeight = 370; //Math.max(300, windowWidth * 0.5);
   const newW = (windowWidth - contentWidth) / 2;
   const newH = (windowHeight - contentHeight) / 2;
-
+  const navigate = useNavigate();
   useEffect(() => {
     window.addEventListener('resize', () => {
       setWindowWidth(window.innerWidth);
@@ -80,7 +80,13 @@ function LoginModule(props: LoginModuleProps) {
         <PasswordBox placeholder="password을 입력하세요"></PasswordBox>
         <NoticeLine content="알림이 표시됩니다"></NoticeLine>
         <Stack direction="horizontal">
-          <Button kind="none" value="접속하기"></Button>
+          <Button
+            kind="none"
+            value="접속하기"
+            onClick={() => {
+              return navigate('/main');
+            }}
+          ></Button>
           <Link style={{ width: '60%' }} to="/temppwd">
             <Button
               kind="none"
@@ -89,16 +95,15 @@ function LoginModule(props: LoginModuleProps) {
             ></Button>
           </Link>
         </Stack>
-        <Link
-          style={{ position: 'relative', left: '25%', width: '50%' }}
-          to="/signup"
-        >
-          <Button
-            kind="none"
-            style={{ width: '100%' }}
-            value="처음 이신가요?"
-          ></Button>
-        </Link>
+
+        <Button
+          kind="none"
+          style={{ width: '50%', marginLeft: '25%' }}
+          value="처음 이신가요?"
+          onClick={() => {
+            return navigate('/signup');
+          }}
+        ></Button>
       </Stack>{' '}
     </div>
   );
