@@ -1,0 +1,10 @@
+#button_background {
+  margin-left: 88%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#button_background:hover {
+  cursor: pointer;
+  background-color: rgb(0, 0, 0, 0.2);
+}
