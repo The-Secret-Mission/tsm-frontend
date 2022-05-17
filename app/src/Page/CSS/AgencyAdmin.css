@@ -6,7 +6,10 @@
   height: 10rem;
   overflow-y: scroll;
   margin-bottom: 30px;
-  background-color: rgb(255, 255, 255, 0.3);
+  /* background-color: rgb(255, 255, 255, 0.3); */
+  border-color: white;
+  border-style: solid;
+  border-width: 2px;
   border-radius: 15px;
   list-style-type: none;
   padding-top: 10px;
@@ -25,9 +28,15 @@
 }
 
 .manage_list_element {
-  /* margin-top: 1rem; */
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+.manage_list_element .agent_email_info {
+  max-width: 75%;
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 메시지 박스 - viewmode */
