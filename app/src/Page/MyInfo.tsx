@@ -1,5 +1,8 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
+import { Stack } from 'react-bootstrap';
+import Button from '../Component/Button';
 import MenuBar from '../Component/Menubar';
+import Modal from '../Component/Modal';
 import PasswordRecheckModule from '../Module/PasswordRecheckModule';
 import UpdateMyInfoModule from '../Module/UpdateMyInfoModule';
 
@@ -34,6 +37,14 @@ function MyInfo() {
     paddingRight: newW + 'px',
     transition: '500ms',
   };
+  const [okModalIsOpen, setOkIsOpen] = useState(false);
+  const [alertModalIsOpen, setAlertIsOpen] = useState(false);
+  function handleOkModalClose() {
+    setOkIsOpen(false);
+  }
+  function handleAlertModalClose() {
+    setAlertIsOpen(false);
+  }
   if (!pass)
     return (
       <div className="page">
@@ -47,7 +58,36 @@ function MyInfo() {
   else
     return (
       <div className="page">
-        <UpdateMyInfoModule style={style}></UpdateMyInfoModule>
+        {okModalIsOpen ? (
+          <Modal handleClose={handleOkModalClose}>
+            <p style={{ textAlign: 'center', height: '70%' }}>
+              비밀번호 변경이 완료되었습니다
+            </p>
+          </Modal>
+        ) : null}
+        {alertModalIsOpen ? (
+          <Modal handleClose={handleAlertModalClose} hiddenButton={true}>
+            <div style={{ height: '70%' }}>
+              <h2>정말 탈퇴하시겠습니까?</h2>
+              <p>이 결정은 되돌릴 수 없습니다</p>
+            </div>
+            <Stack direction="horizontal" gap={2}>
+              <Button
+                kind="fill"
+                value="돌아가기"
+                onClick={() => {
+                  handleAlertModalClose();
+                }}
+              ></Button>
+              <Button kind="fill" value="탈퇴하기"></Button>
+            </Stack>
+          </Modal>
+        ) : null}
+        <UpdateMyInfoModule
+          setOkIsOpen={setOkIsOpen}
+          setAlertIsOpen={setAlertIsOpen}
+          style={style}
+        ></UpdateMyInfoModule>
         <MenuBar></MenuBar>
       </div>
     );
