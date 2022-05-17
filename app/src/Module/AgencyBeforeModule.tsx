@@ -1,6 +1,6 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../Component/Button';
 import MenuBar from '../Component/Menubar';
 import ClosedLetter from '../Icons/ClosedLetter';
@@ -20,7 +20,7 @@ type AgencyBeforeModuleProps = {
 function AgencyBeforeModule(props: AgencyBeforeModuleProps) {
   const params = useParams();
   const [admin, setAdmin] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     params.groupid == '3' ? setAdmin(true) : setAdmin(false);
   }, []);
@@ -34,6 +34,9 @@ function AgencyBeforeModule(props: AgencyBeforeModuleProps) {
             kind="fill"
             style={{ position: 'relative', left: '30%', width: '40%' }}
             value="내 조직 관리하기"
+            onClick={() => {
+              return navigate('/agency/admin/' + params.groupid);
+            }}
           ></Button>
         )}
         <section className="about_agencys">
