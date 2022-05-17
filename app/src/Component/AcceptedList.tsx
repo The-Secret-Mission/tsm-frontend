@@ -2,6 +2,7 @@ import React from 'react';
 import { Stack } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { AcceptedListInfo } from '../Type/AcceptedList';
+
 import './CSS/AcceptedList.css';
 
 type AcceptedListProps = {
@@ -19,10 +20,10 @@ function AcceptedList(props: AcceptedListProps) {
       }}
     >
       <Stack direction="horizontal">
-        <p className="acceted_element" style={{ width: '40%' }}>
+        <p className="acceted_element" style={{ width: '35%' }}>
           {props.data.name}
         </p>
-        <p className="acceted_element" style={{ width: '30%' }}>
+        <p className="acceted_element" style={{ width: '35%' }}>
           {props.data.due}
         </p>
         <p className="acceted_element" style={{ width: '30%' }}>
