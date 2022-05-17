@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import { Stack } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../Component/Button';
 import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
@@ -13,6 +13,8 @@ type PasswordRecheckModuleProps = {
 
 function PasswordRecheckModule(props: PasswordRecheckModuleProps) {
   const [notice, setNotice] = useState(' ');
+  const navigate = useNavigate();
+
   return (
     <div className="password_recheck" style={props.style}>
       <section id="content">
@@ -31,6 +33,9 @@ function PasswordRecheckModule(props: PasswordRecheckModuleProps) {
           style={{ width: '48%', margin: '1%' }}
           kind="none"
           value="뒤로가기"
+          onClick={() => {
+            return navigate(-1);
+          }}
         ></Button>
       </Link>
       <Button
