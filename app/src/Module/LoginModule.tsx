@@ -69,7 +69,7 @@ function LoginModule(props: LoginModuleProps) {
         }
       }}
     >
-      <Stack gap={2} className="login_stack">
+      <Stack gap={3} className="login_stack">
         <h3 className="welcome_message" id="welcome_message_header">
           환영합니다{' '}
         </h3>
