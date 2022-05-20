@@ -8,7 +8,14 @@ type PasswordBoxProps = ChangeEventHandler & {
 };
 
 function PasswordBox(props: PasswordBoxProps) {
-  return <input className="myPasswordBox" type="password" {...props}></input>;
+  return (
+    <input
+      required
+      className="myPasswordBox"
+      type="password"
+      {...props}
+    ></input>
+  );
 }
 
 export default PasswordBox;

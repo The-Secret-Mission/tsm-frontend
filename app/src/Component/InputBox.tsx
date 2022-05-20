@@ -13,10 +13,12 @@ type InputBoxProps = KeyboardEventHander &
   ReactTooltipProps & {
     placeholder: string;
     style?: CSSProperties;
+    type?: string;
+    valid?: boolean;
   };
 
 function InputBox(props: InputBoxProps) {
-  return <input className="myInputBox" type="text" {...props}></input>;
+  return <input required className="myInputBox" type="text" {...props}></input>;
 }
 
 export default InputBox;
