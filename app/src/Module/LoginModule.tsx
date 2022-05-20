@@ -6,23 +6,7 @@ import InputBox from '../Component/InputBox';
 import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
 import './CSS/LoginModule.css';
-/*
-const imgWidth = Math.max(window.innerWidth * 0.5, 300);
-const newW = (window.innerWidth - imgWidth) / 2 + 'px';
-const newH = (window.innerHeight - imgWidth) / 2 + 'px';
 
-const style: CSSProperties = {
-  width: '100%',
-  position: 'fixed',
-  paddingTop: newH,
-  paddingLeft: newW,
-  paddingBottom: newH,
-  paddingRight: newW,
-  zIndex: 2,
-  transition: '500ms',
-  opacity: 1,
-};
-*/
 type LoginModuleProps = {
   setter: React.Dispatch<React.SetStateAction<boolean>>;
 };
