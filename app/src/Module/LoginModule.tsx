@@ -42,6 +42,8 @@ function LoginModule(props: LoginModuleProps) {
     opacity: 1,
   };
   const [errorMessage, setErrorMessage] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <div
       className="empty_block"
@@ -60,15 +62,37 @@ function LoginModule(props: LoginModuleProps) {
         <p className="welcome_message" id="welcome_message_body">
           돌아오셔서 기쁨니다 하하하{' '}
         </p>
-        <InputBox placeholder="email을 입력하세요"></InputBox>
-        <PasswordBox placeholder="password을 입력하세요"></PasswordBox>
+        <InputBox
+          placeholder="이메일을 입력하세요"
+          onChange={(e) => {
+            const inputInfo = e.target as HTMLInputElement;
+            setEmail(inputInfo.value);
+          }}
+        ></InputBox>
+        <PasswordBox
+          placeholder="비밀번호를 입력하세요"
+          onChange={(e) => {
+            const inputInfo = e.target as HTMLInputElement;
+            setPassword(inputInfo.value);
+          }}
+        ></PasswordBox>
         <NoticeLine content={errorMessage}></NoticeLine>
         <Stack direction="horizontal">
           <Button
             kind="none"
             value="접속하기"
             onClick={() => {
-              return navigate('/main');
+              if (!email) setErrorMessage('이메일을 입력해주세요');
+              else if (!password) setErrorMessage('비밀번호를 입력해주세요');
+              else {
+                const regex = new RegExp(
+                  // eslint-disable-next-line no-useless-escape
+                  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                );
+                if (regex.test(email) == false) {
+                  setErrorMessage('유효하지 않은 이메일 형식입니다');
+                } else return navigate('/main');
+              }
             }}
           ></Button>
           <Button
