@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -91,7 +92,19 @@ function LoginModule(props: LoginModuleProps) {
                 );
                 if (regex.test(email) == false) {
                   setErrorMessage('유효하지 않은 이메일 형식입니다');
-                } else return navigate('/main');
+                } else {
+                  axios
+                    .post('http://localhost:4242/auth/login', {
+                      email,
+                      password,
+                    })
+                    .then(() => {
+                      return navigate('/main');
+                    })
+                    .catch((e) => {
+                      console.log(e);
+                    });
+                }
               }
             }}
           ></Button>
