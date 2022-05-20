@@ -55,7 +55,10 @@ function SignupModule(props: SignupModuleProps) {
   const [errorMessage, setErrorMessage] = useState('알림이 표시됩니다');
   const navigate = useNavigate();
   useEffect(() => {
-    if (password === repassword) {
+    if (!password.length && !repassword.length) {
+      setSame(false);
+      setErrorMessage('');
+    } else if (password === repassword) {
       setSame(true);
       setErrorMessage('');
     } else {
