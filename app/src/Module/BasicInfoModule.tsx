@@ -1,5 +1,6 @@
 import React, { CSSProperties, useState } from 'react';
 import { Stack } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
 import Button from '../Component/Button';
 import DateBox from '../Component/DateBox';
@@ -34,7 +35,7 @@ function BasicInfoModule(props: BasicInfoModuleProps) {
   const [ttBudget, showTTBudget] = useState(true);
   const [ttDue, showTTDue] = useState(true);
   const [ttCode, showTTCode] = useState(true);
-
+  const navigate = useNavigate();
   return (
     <div className="page" id="nodule-basic-info" style={props.style}>
       {ttName && <ReactTooltip id="tooltipName"></ReactTooltip>}
@@ -70,7 +71,6 @@ function BasicInfoModule(props: BasicInfoModuleProps) {
             handleMouseLeave(showTTBudget);
           }}
         ></InputBox>
-        {/* <InputBox placeholder="날짜"></InputBox> */}
         <DateBox
           data-for="tooltipDue"
           data-tip={tips.tooltipDue}
@@ -97,7 +97,13 @@ function BasicInfoModule(props: BasicInfoModuleProps) {
         ></InputBox>
       </Stack>
       <Stack direction="horizontal" gap={3}>
-        <Button kind="none" value="뒤로가기"></Button>
+        <Button
+          kind="none"
+          value="뒤로가기"
+          onClick={() => {
+            return navigate(-1);
+          }}
+        ></Button>
         <Button
           kind="fill"
           value="다음으로"

@@ -1,39 +1,22 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
 import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
-
+import axios from 'axios';
 import './CSS/SignupModule.css';
-/*
-const imgWidth = Math.max(window.innerWidth * 0.5, 300);
-const newW = (window.innerWidth - imgWidth) / 2 + 'px';
-const newH = (window.innerHeight - imgWidth) / 2 + 'px';
-
-const style: CSSProperties = {
-  width: '100%',
-  position: 'fixed',
-  paddingTop: newH,
-  paddingLeft: newW,
-  paddingBottom: newH,
-  paddingRight: newW,
-  zIndex: 2,
-  transition: '500ms',
-  opacity: 1,
-};
-*/
 
 type SignupModuleProps = {
-  // modalIsOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  //   setter: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-function handleSignup() {
-  // return Promise.reject('비밀번호가 틀렸습니다');
-  return Promise.resolve(1);
+function handleSignup(email: string, password: string) {
+  return axios.post('http://localhost:4242/auth/signup', {
+    email: email,
+    password: password,
+  });
 }
 function SignupModule(props: SignupModuleProps) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -67,8 +50,9 @@ function SignupModule(props: SignupModuleProps) {
   };
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSame, setSame] = useState(false);
   const [errorMessage, setErrorMessage] = useState('알림이 표시됩니다');
-
+  const navigate = useNavigate();
   return (
     <div className="empty_block" style={style}>
       <Stack gap={2} className="signup_whole">
@@ -96,30 +80,38 @@ function SignupModule(props: SignupModuleProps) {
           placeholder="password을 다시 한번 입력하세요"
           onChange={(e) => {
             const inputInfo = e.target as HTMLInputElement;
-            if (inputInfo.value !== password)
+            if (inputInfo.value !== password) {
               setErrorMessage('비밀번호가 다릅니다');
-            else setErrorMessage('');
+              setSame(false);
+            } else {
+              setErrorMessage('');
+              setSame(true);
+            }
           }}
         ></PasswordBox>
         <NoticeLine content={errorMessage}></NoticeLine>
-        <Stack direction="horizontal" gap={2}>
-          <Link style={{ width: '60%' }} to="/">
-            <Button
-              kind="none"
-              style={{ width: '100%' }}
-              value="기존 요원이신가요?"
-            ></Button>
-          </Link>
+        <Stack direction="horizontal" gap={3}>
           <Button
+            kind="none"
+            style={{ width: '50%' }}
+            value="기존 요원이신가요?"
+            onClick={() => {
+              return navigate('/');
+            }}
+          ></Button>
+          <Button
+            disabled={!isSame}
             kind="fill"
             value="가입하기"
             onClick={() => {
-              handleSignup()
+              handleSignup(email, password)
                 .then(() => {
                   props.setIsOpen(true);
                 })
                 .catch((e) => {
-                  setErrorMessage(e);
+                  const errorMessage: string = e.response.data.message;
+                  if (errorMessage) setErrorMessage(errorMessage);
+                  else setErrorMessage('Something went wrong');
                 });
             }}
           ></Button>

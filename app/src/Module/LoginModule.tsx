@@ -23,7 +23,6 @@ function LoginModule(props: LoginModuleProps) {
   const contentHeight = 370; //Math.max(300, windowWidth * 0.5);
   const newW = (windowWidth - contentWidth) / 2;
   const newH = (windowHeight - contentHeight) / 2;
-  const [noticeMessage, setNoticeMessage] = useState('알림이 표시됩니다');
   const navigate = useNavigate();
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -74,13 +73,7 @@ function LoginModule(props: LoginModuleProps) {
             kind="none"
             value="접속하기"
             onClick={() => {
-              handleLogin()
-                .then(() => {
-                  return navigate('/main');
-                })
-                .catch((e) => {
-                  setNoticeMessage(e);
-                });
+              return navigate('/main');
             }}
           ></Button>
           <Link style={{ width: '60%' }} to="/temppwd">
@@ -91,16 +84,15 @@ function LoginModule(props: LoginModuleProps) {
             ></Button>
           </Link>
         </Stack>
-        <Link
-          style={{ position: 'relative', left: '25%', width: '50%' }}
-          to="/signup"
-        >
-          <Button
-            kind="none"
-            style={{ width: '100%' }}
-            value="처음 이신가요?"
-          ></Button>
-        </Link>
+
+        <Button
+          kind="none"
+          style={{ width: '50%', marginLeft: '25%' }}
+          value="처음 이신가요?"
+          onClick={() => {
+            return navigate('/signup');
+          }}
+        ></Button>
       </Stack>{' '}
     </div>
   );

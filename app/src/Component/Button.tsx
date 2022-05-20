@@ -7,6 +7,7 @@ type ButtonProps = MouseEventHandler & {
   kind: 'none' | 'fill';
   value: string;
   style?: CSSProperties;
+  disabled?: boolean;
 };
 
 function Button(props: ButtonProps) {
