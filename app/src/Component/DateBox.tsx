@@ -11,7 +11,7 @@ type DateBoxProps = MouseEventHandler &
   };
 
 function DateBox(props: DateBoxProps) {
-  return <input required className="myDateBox" type="date" {...props}></input>;
+  return <input className="myDateBox" type="date" {...props}></input>;
 }
 
 export default DateBox;

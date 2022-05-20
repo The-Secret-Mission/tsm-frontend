@@ -18,7 +18,7 @@ type InputBoxProps = KeyboardEventHander &
   };
 
 function InputBox(props: InputBoxProps) {
-  return <input required className="myInputBox" type="text" {...props}></input>;
+  return <input className="myInputBox" type="text" {...props}></input>;
 }
 
 export default InputBox;
