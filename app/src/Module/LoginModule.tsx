@@ -41,6 +41,7 @@ function LoginModule(props: LoginModuleProps) {
     transition: '500ms',
     opacity: 1,
   };
+  const [errorMessage, setErrorMessage] = useState('');
   return (
     <div
       className="empty_block"
@@ -61,7 +62,7 @@ function LoginModule(props: LoginModuleProps) {
         </p>
         <InputBox placeholder="email을 입력하세요"></InputBox>
         <PasswordBox placeholder="password을 입력하세요"></PasswordBox>
-        <NoticeLine content="알림이 표시됩니다"></NoticeLine>
+        <NoticeLine content={errorMessage}></NoticeLine>
         <Stack direction="horizontal">
           <Button
             kind="none"
