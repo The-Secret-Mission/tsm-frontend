@@ -1,6 +1,6 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
 import NoticeLine from '../Component/NoticeLine';
@@ -71,13 +71,13 @@ function LoginModule(props: LoginModuleProps) {
               return navigate('/main');
             }}
           ></Button>
-          <Link style={{ width: '60%' }} to="/temppwd">
-            <Button
-              kind="none"
-              style={{ width: '90%' }}
-              value="비밀번호 재설정"
-            ></Button>
-          </Link>
+          <Button
+            kind="none"
+            value="비밀번호 재설정"
+            onClick={() => {
+              return navigate('/temppwd');
+            }}
+          ></Button>
         </Stack>
 
         <Button
