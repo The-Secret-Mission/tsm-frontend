@@ -107,7 +107,7 @@ function SignupModule(props: SignupModuleProps) {
             }}
           ></Button>
           <Button
-            disabled={!email || !isSame}
+            disabled={email && isSame ? false : true}
             kind="fill"
             value="가입하기"
             onClick={() => {
