@@ -50,12 +50,25 @@ function SignupModule(props: SignupModuleProps) {
   };
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [repassword, setRePassword] = useState('');
   const [isSame, setSame] = useState(false);
   const [errorMessage, setErrorMessage] = useState('알림이 표시됩니다');
   const navigate = useNavigate();
+  useEffect(() => {
+    if (!password.length && !repassword.length) {
+      setSame(false);
+      setErrorMessage('');
+    } else if (password === repassword) {
+      setSame(true);
+      setErrorMessage('');
+    } else {
+      setSame(false);
+      setErrorMessage('비밀번호가 다릅니다');
+    }
+  }, [password, repassword]);
   return (
     <div className="empty_block" style={style}>
-      <Stack gap={2} className="signup_whole">
+      <Stack gap={3} className="signup_whole">
         <h3 className="welcome_message" id="welcome_message_header">
           환영합니다{' '}
         </h3>
@@ -80,13 +93,7 @@ function SignupModule(props: SignupModuleProps) {
           placeholder="password을 다시 한번 입력하세요"
           onChange={(e) => {
             const inputInfo = e.target as HTMLInputElement;
-            if (inputInfo.value !== password) {
-              setErrorMessage('비밀번호가 다릅니다');
-              setSame(false);
-            } else {
-              setErrorMessage('');
-              setSame(true);
-            }
+            setRePassword(inputInfo.value);
           }}
         ></PasswordBox>
         <NoticeLine content={errorMessage}></NoticeLine>
@@ -100,7 +107,7 @@ function SignupModule(props: SignupModuleProps) {
             }}
           ></Button>
           <Button
-            disabled={!isSame}
+            disabled={email && isSame ? false : true}
             kind="fill"
             value="가입하기"
             onClick={() => {

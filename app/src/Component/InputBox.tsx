@@ -13,6 +13,8 @@ type InputBoxProps = KeyboardEventHander &
   ReactTooltipProps & {
     placeholder: string;
     style?: CSSProperties;
+    type?: string;
+    valid?: boolean;
   };
 
 function InputBox(props: InputBoxProps) {

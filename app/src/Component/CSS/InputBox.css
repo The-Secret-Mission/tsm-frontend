@@ -10,8 +10,17 @@
   color: white;
 }
 
+.myInputBox:hover {
+  outline: none;
+  box-shadow: 0 0 10px 3px white, 0 0 0 1px white;
+}
+
 .myInputBox:focus {
   outline: none;
-  box-shadow: 0 0 0 2px white;
-  /* outline: 1px solid white; */
+  box-shadow: 0 0 10px 3px white, 0 0 0 1px white;
+}
+
+.myInputBox:invalid {
+  outline: none;
+  box-shadow: 0 0 10px 3px #fe8686, 0 0 0 1px #fe8686;
 }
