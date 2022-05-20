@@ -9,12 +9,16 @@
   color: white;
   text-align: center;
 }
-
 .myButton_none:hover {
   background-color: rgb(255, 255, 255, 0.1);
   color: #4fb71e;
   font-weight: bold;
-  /* text-shadow: 2px 2px 4px black; */
+}
+
+.myButton_none:disabled {
+  pointer-events: none;
+  color: rgb(255, 255, 255, 0.3);
+  cursor: default;
 }
 
 .myButton_fill {
@@ -32,10 +36,11 @@
 }
 
 .myButton_fill:hover {
-  /* background-color: rgb(255, 255, 255, 0.1);
-  color: #4fb71e;
-  font-weight: bold; */
-  /* text-shadow: 1px 1px 4px white; */
   outline: none;
   box-shadow: 0 0 0 2px white;
+}
+
+.myButton_fill:disabled {
+  background-color: grey;
+  pointer-events: none;
 }

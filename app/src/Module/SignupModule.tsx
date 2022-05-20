@@ -1,6 +1,6 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
 import NoticeLine from '../Component/NoticeLine';
@@ -52,7 +52,7 @@ function SignupModule(props: SignupModuleProps) {
   const [password, setPassword] = useState('');
   const [isSame, setSame] = useState(false);
   const [errorMessage, setErrorMessage] = useState('알림이 표시됩니다');
-
+  const navigate = useNavigate();
   return (
     <div className="empty_block" style={style}>
       <Stack gap={2} className="signup_whole">
@@ -90,14 +90,15 @@ function SignupModule(props: SignupModuleProps) {
           }}
         ></PasswordBox>
         <NoticeLine content={errorMessage}></NoticeLine>
-        <Stack direction="horizontal" gap={2}>
-          <Link style={{ width: '60%' }} to="/">
-            <Button
-              kind="none"
-              style={{ width: '100%' }}
-              value="기존 요원이신가요?"
-            ></Button>
-          </Link>
+        <Stack direction="horizontal" gap={3}>
+          <Button
+            kind="none"
+            style={{ width: '50%' }}
+            value="기존 요원이신가요?"
+            onClick={() => {
+              return navigate('/');
+            }}
+          ></Button>
           <Button
             disabled={!isSame}
             kind="fill"
