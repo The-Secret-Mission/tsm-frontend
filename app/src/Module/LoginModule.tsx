@@ -102,7 +102,7 @@ function LoginModule(props: LoginModuleProps) {
                       return navigate('/main');
                     })
                     .catch((e) => {
-                      console.log(e);
+                      setErrorMessage(e.response.data.message);
                     });
                 }
               }
