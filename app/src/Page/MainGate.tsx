@@ -125,7 +125,12 @@ function MainGate() {
           <p id="fastest_dday">{'D - ' + dday}</p>
         )}
         <p id="fastest_agengy">
-          {dday != -1 ? agency : '초대에 응하거나 새 조직을 직접 만들어 보세요'}
+          {dday != -1 && agency
+            ? agency
+            : agency
+            ? '초대에 응하세요'
+            : '새 조직을 직접 만들어보세요'}
+          {/* {dday != -1 ? agency : '초대에 응하거나 새 조직을 직접 만들어 보세요'} */}
         </p>
         <section className="invited">
           <p id="list_title">초대받은 조직</p>
