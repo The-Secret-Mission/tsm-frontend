@@ -63,7 +63,6 @@ function LoginModule(props: LoginModuleProps) {
       style={style}
       onClick={(e) => {
         const divInfo = e.target as Element;
-        console.log(divInfo.className);
         if (divInfo.className == 'empty_block') {
           props.setter(false);
         }
