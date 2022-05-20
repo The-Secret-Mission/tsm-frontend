@@ -58,6 +58,16 @@ function MainGate() {
           });
         });
         setAcceptedList(newAcceptedList);
+        if (newAcceptedList.length) {
+          setAgency(newAcceptedList[0].name);
+          setDday(0);
+        } else if (newInvitedList.length) {
+          setAgency(newInvitedList[0].name);
+          setDday(-1);
+        } else {
+          setAgency('');
+          setDday(-1);
+        }
       })
       .catch((e) => {
         if (e.response.status == 401) return navigate('/');
