@@ -9,17 +9,16 @@
   color: white;
   text-align: center;
 }
+.myButton_none:hover {
+  background-color: rgb(255, 255, 255, 0.1);
+  color: #4fb71e;
+  font-weight: bold;
+}
 
 .myButton_none:disabled {
   pointer-events: none;
   color: rgb(255, 255, 255, 0.3);
   cursor: default;
-}
-
-.myButton_none:active:hover {
-  background-color: rgb(255, 255, 255, 0.1);
-  color: #4fb71e;
-  font-weight: bold;
 }
 
 .myButton_fill {
@@ -36,12 +35,12 @@
   font-weight: bold;
 }
 
+.myButton_fill:hover {
+  outline: none;
+  box-shadow: 0 0 0 2px white;
+}
+
 .myButton_fill:disabled {
   background-color: grey;
   pointer-events: none;
-}
-
-.myButton_fill:active:hover {
-  outline: none;
-  box-shadow: 0 0 0 2px white;
 }
