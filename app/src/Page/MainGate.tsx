@@ -1,4 +1,5 @@
-import React, { CSSProperties, useState } from 'react';
+import axios from 'axios';
+import React, { CSSProperties, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import AcceptedList from '../Component/AcceptedList';
@@ -21,30 +22,47 @@ const style: CSSProperties = {
 };
 
 function MainGate() {
-  const invitedList: InvitedListInfo[] = [
-    {
-      groupid: '10',
-      name: 'cocoa스파이더맨 노웨이 홈 테스트',
-      invitor: 'jikwon1011@gamil.com',
-      codename: 'jikwon',
-    },
-  ];
-  const accetedList: AcceptedListInfo[] = [
-    {
-      groupid: '10',
-      name: '스파이더맨노웨이홈',
-      codename: 'jikwon',
-      due: '2022-05-10',
-      budget: '20000',
-    },
-  ];
   const navigate = useNavigate();
+  const [acceptedList, setAcceptedList] = useState<AcceptedListInfo[]>([]);
+  const [invitedList, setInvitedList] = useState<InvitedListInfo[]>([]);
   const [isEntermodalOpen, setEnterModalOpen] = useState(false);
   const [selected, setSeleted] = useState(-1);
   function handleClose() {
     setEnterModalOpen(false);
     setSeleted(-1);
   }
+  useEffect(() => {
+    axios
+      .get('http://localhost:4242/user/organization')
+      .then((response) => {
+        const invited = response.data.invited;
+        const accepted = response.data.entered;
+        const newInvitedList: InvitedListInfo[] = [];
+        invited.map((elem: any) => {
+          newInvitedList.push({
+            groupid: elem.groupid,
+            name: elem.name,
+            invitor: elem.invitor,
+            codename: elem.codename,
+          });
+        });
+        setInvitedList(newInvitedList);
+        const newAcceptedList: AcceptedListInfo[] = [];
+        accepted.map((elem: any) => {
+          newAcceptedList.push({
+            groupid: elem.groupid,
+            name: elem.name,
+            due: elem.due,
+            budget: elem.budget,
+            codename: elem.codename,
+          });
+        });
+        setAcceptedList(newAcceptedList);
+      })
+      .catch((e) => {
+        if (e.response.status == 401) return navigate('/');
+      });
+  }, []);
   return (
     <div className="page">
       {isEntermodalOpen && selected !== -1 ? (
@@ -124,7 +142,7 @@ function MainGate() {
             ></AcceptedList>
           </div>
           <ul className="list_with_scroll">
-            {accetedList.map((elem, index) => {
+            {acceptedList.map((elem, index) => {
               return <AcceptedList key={index} data={elem}></AcceptedList>;
             })}
           </ul>
