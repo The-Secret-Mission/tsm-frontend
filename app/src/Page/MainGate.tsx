@@ -27,6 +27,8 @@ function MainGate() {
   const [invitedList, setInvitedList] = useState<InvitedListInfo[]>([]);
   const [isEntermodalOpen, setEnterModalOpen] = useState(false);
   const [selected, setSeleted] = useState(-1);
+  const [dday, setDday] = useState(-1);
+  const [agency, setAgency] = useState('');
   function handleClose() {
     setEnterModalOpen(false);
     setSeleted(-1);
