@@ -9,6 +9,7 @@ import InvitedList from '../Component/InvitedList';
 import MenuBar from '../Component/Menubar';
 import Modal from '../Component/Modal';
 import NoticeLine from '../Component/NoticeLine';
+import InfinityIcon from '../Icons/InfinityIcon';
 import { AcceptedListInfo } from '../Type/AcceptedList';
 import { InvitedListInfo } from '../Type/InvitedListInfo';
 import './CSS/MainGate.css';
@@ -118,8 +119,14 @@ function MainGate() {
         </Modal>
       ) : null}
       <div className="main_content" style={style}>
-        <p id="fastest_dday">D - 20</p>
-        <p id="fastest_agengy">첫번째 두번째 세번째 조직</p>
+        {dday == -1 ? (
+          <InfinityIcon />
+        ) : (
+          <p id="fastest_dday">{'D - ' + dday}</p>
+        )}
+        <p id="fastest_agengy">
+          {dday != -1 ? agency : '초대에 응하거나 새 조직을 직접 만들어 보세요'}
+        </p>
         <section className="invited">
           <p id="list_title">초대받은 조직</p>
           <div id="heading">
