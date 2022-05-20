@@ -7,6 +7,7 @@ import './CSS/Home.css';
 
 function Home() {
   const [open, setOpen] = useState(false);
+  const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -16,7 +17,7 @@ function Home() {
         type={open ? 'blur' : 'non_blur'}
         onClick={() => {
           const cur = open;
-          if (!cur)
+          if (!cur && !checked)
             axios
               .get('http://localhost:4242/auth/checklogin')
               .then(() => {
@@ -24,8 +25,10 @@ function Home() {
               })
               .catch(() => {
                 console.log('');
-                setOpen(!open);
+
+                setChecked(true);
               });
+          setOpen(!open);
         }}
       ></MainLogo>
     </div>
