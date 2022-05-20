@@ -68,7 +68,7 @@ function SignupModule(props: SignupModuleProps) {
   }, [password, repassword]);
   return (
     <div className="empty_block" style={style}>
-      <Stack gap={2} className="signup_whole">
+      <Stack gap={3} className="signup_whole">
         <h3 className="welcome_message" id="welcome_message_header">
           환영합니다{' '}
         </h3>
