@@ -11,7 +11,9 @@ import MainGate from './Page/MainGate';
 import CreateAgency from './Page/CreateAgency';
 import Agency from './Page/Agency';
 import AgencyAdmin from './Page/AgencyAdmin';
+import axios from 'axios';
 
+axios.defaults.headers.common['email'] = 'jikwon@gmail.com'; // for all requests
 function App() {
   return (
     <div className="App">

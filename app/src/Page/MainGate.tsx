@@ -1,4 +1,5 @@
-import React, { CSSProperties, useState } from 'react';
+import axios from 'axios';
+import React, { CSSProperties, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import AcceptedList from '../Component/AcceptedList';
@@ -8,6 +9,7 @@ import InvitedList from '../Component/InvitedList';
 import MenuBar from '../Component/Menubar';
 import Modal from '../Component/Modal';
 import NoticeLine from '../Component/NoticeLine';
+import InfinityIcon from '../Icons/InfinityIcon';
 import { AcceptedListInfo } from '../Type/AcceptedList';
 import { InvitedListInfo } from '../Type/InvitedListInfo';
 import './CSS/MainGate.css';
@@ -21,30 +23,59 @@ const style: CSSProperties = {
 };
 
 function MainGate() {
-  const invitedList: InvitedListInfo[] = [
-    {
-      groupid: '10',
-      name: 'cocoa스파이더맨 노웨이 홈 테스트',
-      invitor: 'jikwon1011@gamil.com',
-      codename: 'jikwon',
-    },
-  ];
-  const accetedList: AcceptedListInfo[] = [
-    {
-      groupid: '10',
-      name: '스파이더맨노웨이홈',
-      codename: 'jikwon',
-      due: '2022-05-10',
-      budget: '20000',
-    },
-  ];
   const navigate = useNavigate();
+  const [acceptedList, setAcceptedList] = useState<AcceptedListInfo[]>([]);
+  const [invitedList, setInvitedList] = useState<InvitedListInfo[]>([]);
   const [isEntermodalOpen, setEnterModalOpen] = useState(false);
   const [selected, setSeleted] = useState(-1);
+  const [dday, setDday] = useState(-1);
+  const [agency, setAgency] = useState('');
   function handleClose() {
     setEnterModalOpen(false);
     setSeleted(-1);
   }
+  useEffect(() => {
+    axios
+      .get('http://localhost:4242/user/organization')
+      .then((response) => {
+        const invited = response.data.invited;
+        const accepted = response.data.entered;
+        const newInvitedList: InvitedListInfo[] = [];
+        invited.map((elem: any) => {
+          newInvitedList.push({
+            groupid: elem.groupid,
+            name: elem.name,
+            invitor: elem.invitor,
+            codename: elem.codename,
+          });
+        });
+        setInvitedList(newInvitedList);
+        const newAcceptedList: AcceptedListInfo[] = [];
+        accepted.map((elem: any) => {
+          newAcceptedList.push({
+            groupid: elem.groupid,
+            name: elem.name,
+            due: elem.due,
+            budget: elem.budget,
+            codename: elem.codename,
+          });
+        });
+        setAcceptedList(newAcceptedList);
+        if (newAcceptedList.length) {
+          setAgency(newAcceptedList[0].name);
+          setDday(0);
+        } else if (newInvitedList.length) {
+          setAgency(newInvitedList[0].name);
+          setDday(-1);
+        } else {
+          setAgency('');
+          setDday(-1);
+        }
+      })
+      .catch((e) => {
+        if (e.response.status == 401) return navigate('/');
+      });
+  }, []);
   return (
     <div className="page">
       {isEntermodalOpen && selected !== -1 ? (
@@ -88,8 +119,19 @@ function MainGate() {
         </Modal>
       ) : null}
       <div className="main_content" style={style}>
-        <p id="fastest_dday">D - 20</p>
-        <p id="fastest_agengy">첫번째 두번째 세번째 조직</p>
+        {dday == -1 ? (
+          <InfinityIcon />
+        ) : (
+          <p id="fastest_dday">{'D - ' + dday}</p>
+        )}
+        <p id="fastest_agengy">
+          {dday != -1 && agency
+            ? agency
+            : agency
+            ? '초대에 응하세요'
+            : '새 조직을 직접 만들어보세요'}
+          {/* {dday != -1 ? agency : '초대에 응하거나 새 조직을 직접 만들어 보세요'} */}
+        </p>
         <section className="invited">
           <p id="list_title">초대받은 조직</p>
           <div id="heading">
@@ -124,7 +166,7 @@ function MainGate() {
             ></AcceptedList>
           </div>
           <ul className="list_with_scroll">
-            {accetedList.map((elem, index) => {
+            {acceptedList.map((elem, index) => {
               return <AcceptedList key={index} data={elem}></AcceptedList>;
             })}
           </ul>
