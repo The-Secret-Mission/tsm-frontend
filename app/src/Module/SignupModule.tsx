@@ -7,14 +7,14 @@ import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
 import axios from 'axios';
 import './CSS/SignupModule.css';
-import { backaddr } from '../env';
+import { PATH_SIGNUP } from '../env';
 
 type SignupModuleProps = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 function handleSignup(email: string, password: string) {
-  return axios.post(backaddr + '/auth/signup', {
+  return axios.post(PATH_SIGNUP, {
     email: email,
     password: password,
   });
