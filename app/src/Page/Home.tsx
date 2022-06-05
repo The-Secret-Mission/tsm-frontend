@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MainLogo from '../Component/MainLogo';
+import { PATH_CHECKLOGIN } from '../env';
 import LoginModule from '../Module/LoginModule';
 import './CSS/Home.css';
 
@@ -19,7 +20,7 @@ function Home() {
           const cur = open;
           if (!cur && !checked)
             axios
-              .get('http://localhost:4242/auth/checklogin')
+              .get(PATH_CHECKLOGIN)
               .then(() => {
                 return navigate('/main');
               })

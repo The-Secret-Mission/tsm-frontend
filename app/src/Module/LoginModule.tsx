@@ -6,6 +6,7 @@ import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
 import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
+import { PATH_LOGIN } from '../env';
 import './CSS/LoginModule.css';
 
 type LoginModuleProps = {
@@ -94,7 +95,7 @@ function LoginModule(props: LoginModuleProps) {
                   setErrorMessage('유효하지 않은 이메일 형식입니다');
                 } else {
                   axios
-                    .post('http://localhost:4242/auth/login', {
+                    .post(PATH_LOGIN, {
                       email,
                       password,
                     })

@@ -9,6 +9,7 @@ import InvitedList from '../Component/InvitedList';
 import MenuBar from '../Component/Menubar';
 import Modal from '../Component/Modal';
 import NoticeLine from '../Component/NoticeLine';
+import { PATH_USER } from '../env';
 import InfinityIcon from '../Icons/InfinityIcon';
 import { AcceptedListInfo } from '../Type/AcceptedList';
 import { InvitedListInfo } from '../Type/InvitedListInfo';
@@ -36,7 +37,7 @@ function MainGate() {
   }
   useEffect(() => {
     axios
-      .get('http://localhost:4242/user/organization')
+      .get(PATH_USER('userid'))
       .then((response) => {
         const invited = response.data.invited;
         const accepted = response.data.entered;
