@@ -7,13 +7,14 @@ import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
 import axios from 'axios';
 import './CSS/SignupModule.css';
+import { backaddr } from '../env';
 
 type SignupModuleProps = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 function handleSignup(email: string, password: string) {
-  return axios.post('http://localhost:4242/auth/signup', {
+  return axios.post(backaddr + '/auth/signup', {
     email: email,
     password: password,
   });
@@ -116,7 +117,7 @@ function SignupModule(props: SignupModuleProps) {
                   props.setIsOpen(true);
                 })
                 .catch((e) => {
-                  const errorMessage: string = e.response.data.message;
+                  const errorMessage: string = e?.response?.data?.message;
                   if (errorMessage) setErrorMessage(errorMessage);
                   else setErrorMessage('Something went wrong');
                 });
