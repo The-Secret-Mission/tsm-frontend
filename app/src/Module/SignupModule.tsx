@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React, { CSSProperties, useContext, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Button from '../Component/Button';
@@ -8,6 +8,7 @@ import PasswordBox from '../Component/PasswordBox';
 import axios from 'axios';
 import './CSS/SignupModule.css';
 import { PATH_SIGNUP } from '../env';
+import { UserContext } from '../Context';
 
 type SignupModuleProps = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -54,6 +55,7 @@ function SignupModule(props: SignupModuleProps) {
   const [repassword, setRePassword] = useState('');
   const [isSame, setSame] = useState(false);
   const [errorMessage, setErrorMessage] = useState('알림이 표시됩니다');
+  const userContext = useContext(UserContext);
   const navigate = useNavigate();
   useEffect(() => {
     if (!password.length && !repassword.length) {
@@ -113,7 +115,8 @@ function SignupModule(props: SignupModuleProps) {
             value="가입하기"
             onClick={() => {
               handleSignup(email, password)
-                .then(() => {
+                .then((e) => {
+                  userContext.handleUserId(e.data.userid);
                   props.setIsOpen(true);
                 })
                 .catch((e) => {

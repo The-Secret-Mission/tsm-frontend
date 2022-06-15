@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React, { CSSProperties, useContext, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import AcceptedList from '../Component/AcceptedList';
@@ -9,6 +9,7 @@ import InvitedList from '../Component/InvitedList';
 import MenuBar from '../Component/Menubar';
 import Modal from '../Component/Modal';
 import NoticeLine from '../Component/NoticeLine';
+import { UserContext } from '../Context';
 import { PATH_USER } from '../env';
 import InfinityIcon from '../Icons/InfinityIcon';
 import { AcceptedListInfo } from '../Type/AcceptedList';
@@ -31,13 +32,14 @@ function MainGate() {
   const [selected, setSeleted] = useState(-1);
   const [dday, setDday] = useState(-1);
   const [agency, setAgency] = useState('');
+  const userContext = useContext(UserContext);
   function handleClose() {
     setEnterModalOpen(false);
     setSeleted(-1);
   }
   useEffect(() => {
     axios
-      .get(PATH_USER('userid'))
+      .get(PATH_USER(userContext.userid))
       .then((response) => {
         const invited = response.data.invited;
         const accepted = response.data.entered;

@@ -1,11 +1,12 @@
 import axios from 'axios';
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React, { CSSProperties, useContext, useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Button from '../Component/Button';
 import InputBox from '../Component/InputBox';
 import NoticeLine from '../Component/NoticeLine';
 import PasswordBox from '../Component/PasswordBox';
+import { UserContext } from '../Context';
 import { PATH_LOGIN } from '../env';
 import './CSS/LoginModule.css';
 
@@ -46,6 +47,7 @@ function LoginModule(props: LoginModuleProps) {
   const [errorMessage, setErrorMessage] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const userContext = useContext(UserContext);
   return (
     <div
       className="empty_block"
@@ -99,7 +101,8 @@ function LoginModule(props: LoginModuleProps) {
                       email,
                       password,
                     })
-                    .then(() => {
+                    .then((e) => {
+                      userContext.handleUserId(e.data.userid);
                       return navigate('/main');
                     })
                     .catch((e) => {
